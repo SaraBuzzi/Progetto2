@@ -10,6 +10,11 @@ header {
     background-image: url("../img/sfondo.png");
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .fit-content {
     width: fit-content;
 }
@@ -39,6 +44,38 @@ header {
     --bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);
                    
 }
+
+/* Slider */
+.sliding-window {
+    transition: transform 250ms ease-in-out;
+}
+
+.sliding-container {
+    max-width: 15rem; /* 1 Card */
+}
+
+@media (min-width: 768px) {
+
+    .sliding-container {
+        max-width: 31rem; /* 1 Card */
+    }
+}
+
+@media (min-width: 992px) {
+
+    .sliding-container {
+        max-width: 47rem; /* 2 Card */
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .sliding-container {
+        max-width: 63rem; /* 3 Card */
+    }
+}
+
+
 
 
 /*
