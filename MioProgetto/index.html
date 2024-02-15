@@ -62,12 +62,10 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white text-uppercase fs-6"
-                                        href="pag/account.html">Ricettario
-                                        personale</a>
+                                        href="pag/ricerca.html">recipes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white text-uppercase fs-6" href="pag/ricerca.html">Tutte le
-                                        ricette</a>
+                                    <a class="nav-link text-white text-uppercase fs-6" href="pag/account.html">My cookbook</a>
                                 </li>
                             </div>
                             <div class="col d-lg-flex justify-content-end gap-4 my-3 ms-lg-5 me-5 me-lg-0">
@@ -84,11 +82,11 @@
                                         </a>
 
                                         <a class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#login">
-                                            Accedi
+                                            Log In
                                         </a>
 
                                         <a class="btn btn-outline-light" data-bs-toggle="modal"
-                                            data-bs-target="#new-account"> Crea un account
+                                            data-bs-target="#new-account"> New Account
                                         </a>
                                     </form>
                                 </li>
@@ -111,12 +109,12 @@
             <div class="bg-white mx-auto p-5 rounded-5 shadow-lg fit-content">
                 <div>
                     <h1 class="text-uppercase text-dark py-1 px-3 rounded-5">
-                        Inizia subito a cucinare!
+                        let's start to cook!
                     </h1>
                 </div>
                 <div>
                     <a class="btn btn-dark btn-lg fw-medium" href="pag/ricerca.html">
-                        Vai alle ricette
+                        View all the recipes
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16"
                             class="bi bi-caret-right-fill" viewBox="0 0 16 16">
@@ -147,7 +145,7 @@
             <div class="row align-items-center">
                 <div class="col-4">
                     <div class="bg-light p-2 rounded-3 ms-4 fit-content">
-                        <h4 class="text-uppercase fs-4 fw-medium mb-0">Cosa cucino oggi</h4>
+                        <h4 class="text-uppercase fs-4 fw-medium mb-0">Some inspiration</h4>
                     </div>
                 </div>
                 <div class="col">
@@ -479,7 +477,7 @@
                     <div class="col-5 d-flex justify-content-center align-items-center">
                         <div class="color-first p-3 rounded-5 shadow fit-content">
                             <h3 class="text-light py-1 px-3  mb-0">
-                                Fatti ispirare dalle nostre proposte
+                                try our categories??
                             </h3>
                         </div>
 
@@ -497,7 +495,7 @@
             <div class="row align-items-center">
                 <div class="col-4">
                     <div class="bg-light p-2 rounded-3 ms-4 fit-content">
-                        <h4 class="text-uppercase fs-4 fw-medium mb-0">I più popolari</h4>
+                        <h4 class="text-uppercase fs-4 fw-medium mb-0">explore the world</h4>
                     </div>
 
                 </div>
@@ -784,7 +782,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-body-dark">
-                    <h1 class="modal-title fs-2 fw-medium">Che bello rivederti!</h1>
+                    <h1 class="modal-title fs-2 fw-medium">It's nice to see you again!</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -800,7 +798,7 @@
                                 </div>
                                 <div class="col">
                                     <input name="email" id="email" class="form-control focus-ring focus-ring-green"
-                                        type="email" placeholder="Inserisci la tua email">
+                                        type="email" placeholder="Insert your email">
                                 </div>
                             </div>
                             <div class="row">
@@ -815,7 +813,7 @@
                                     <div class="row">
                                         <div class="col pe-1">
                                             <input class="form-control focus-ring focus-ring-green password"
-                                                type="password" value="" placeholder="Inserisci la tua password">
+                                                type="password" value="" placeholder="Insert your password">
                                         </div>
                                         <div class="col-2 d-flex justify-content-end align-items-center ">
                                             <button type="button" class="btn btn-light border"
@@ -842,7 +840,7 @@
                                     </div>
 
                                     <div class="pass"><a href="#"
-                                            class="link-dark fs-sm text-decoration-underline">Password dimenticata?</a>
+                                            class="link-dark fs-sm text-decoration-underline">Have you forgot your password?</a>
                                     </div>
                                 </div>
 
@@ -851,13 +849,13 @@
                     </div>
 
                     <div class="row button mx-auto mt-2 fit-content">
-                        <button type="submit" class="btn btn-dark">Accedi</button>
+                        <button type="submit" class="btn btn-dark">Log in</button>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <div class="">Non hai un account? <a href="#" class="link-success text-decoration-underline"
-                            data-bs-toggle="modal" data-bs-target="#new-account">Registrati ora!</a></div>
+                    <div class="">You haven't got an account? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#new-account">New account!</a></div>
                 </div>
             </div>
         </div>
@@ -874,11 +872,11 @@
                 <div class="modal-body">
                     <form action="" onsubmit="" name="registration_form">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Indirizzo email</label>
+                            <label for="email" class="form-label">Email address</label>
                             <input name="email" id="email" class="form-control focus-ring focus-ring-green" type="email"
                                 oninput="controllaCampo(this)" required>
                             <div class="invalid-feedback">
-                                Email non valida
+                                Email not valid
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -889,17 +887,17 @@
                                     oninput="controllaCampo(this)"
                                     pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" aria-describedby="password-info">
                                 <div class="invalid-feedback">
-                                    La Password non rispetta i criteri specificati
+                                    The password does not meet the requirements
                                 </div>
                             </div>
                             <div class="col-md-6 ">
-                                <label for="password2" class="form-label">Conferma password</label>
+                                <label for="password2" class="form-label">Confirm password</label>
                                 <div class="row mb-3">
                                     <div class="col">
                                         <input id="password2" class="form-control focus-ring focus-ring-green password" oninput="controllaUguaglianzaPassword(this)"
                                             type="password" value="">
                                             <div class="invalid-feedback">
-                                                Le Password sono diverse
+                                                The passwords are different
                                             </div>
                                     </div>
                                     <div class="col-2 ms-1 d-flex justify-content-end align-items-center ">
@@ -929,33 +927,33 @@
 
                             </div>
                             <div id="password-info" class="form-text">
-                                La password deve essere almeno di 8 caratteri e contenere un numero e una lettera.
+                               The password must be above 8 characters and it must contain a letter and a number
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-12 mb-3">
-                                <label for="nome" class="form-label">Nome</label>
+                                <label for="nome" class="form-label">First name</label>
                                 <input name="nome" id="nome" class="form-control focus-ring focus-ring-green"
                                     type="text" value="" required>
                             </div>
                             <div class="col-md-6 col-12 mb-3">
 
-                                <label for="lname" class="form-label">Cognome</label>
+                                <label for="lname" class="form-label">Last name</label>
                                 <input name="lname" id="lname" class="form-control focus-ring focus-ring-green"
                                     type="text" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-12 mb-3">
-                                <label for="gender" class="form-label">Sesso</label>
+                                <label for="gender" class="form-label">Sex</label>
                                 <select name="gender" id="gender" class="form-control focus-ring focus-ring-green">
                                     <option>M</option>
-                                    <option>F</option>
-                                    <option>Altro</option>
+                                    <option>W</option>
+                                    <option>Other</option>
                                 </select>
                             </div>
                             <div class="col-md-6 col-12 mb-3">
-                                <label for="date" class="form-label">Data di nascita</label>
+                                <label for="date" class="form-label">Date of Birth</label>
                                 <input name="date" id="date" class="form-control focus-ring focus-ring-green"
                                     type="date" required>
                             </div>
@@ -966,9 +964,9 @@
                                 d'uso</label>
                         </div>
                         <div class=" d-flex justify-content-end">
-                            <button type="reset" class="btn btn-outline-dark me-2">Resetta</button>
+                            <button type="reset" class="btn btn-outline-dark me-2">Reset</button>
 
-                            <button type="submit" class="btn btn-dark">Conferma</button>
+                            <button type="submit" class="btn btn-dark">Confirm</button>
                         </div>
 
                     </form>
@@ -976,8 +974,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <div class="">Hai già un account? <a href="#" class="link-success text-decoration-underline"
-                            data-bs-toggle="modal" data-bs-target="#login">Accedi ora!</a></div>
+                    <div class="">Do you have an account? <a href="#" class="link-success text-decoration-underline"
+                            data-bs-toggle="modal" data-bs-target="#login">Log in now!</a></div>
                 </div>
             </div>
         </div>
@@ -994,11 +992,11 @@
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Scrivi la tua nota" id="recipe-note"
                             style="height: 100px"></textarea>
-                        <label for="recipe-note">Aggiungi qui una nota alla ricetta...</label>
+                        <label for="recipe-note">Leave here a comment for this recipe...</label>
                     </div>
 
                     <div class=" d-flex justify-content-end mt-4">
-                        <button type="submit" class="btn btn-dark">Aggiungi al ricettario</button>
+                        <button type="submit" class="btn btn-dark">Add to your cookbook</button>
                     </div>
                 </div>
             </div>

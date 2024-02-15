@@ -46,6 +46,16 @@ a {
                    
 }
 
+.nav-pills-green {
+    --bs-nav-pills-link-active-bg: rgba(var(--bs-success-rgb), .25);
+    --bs-nav-pills-link-active-color: black;
+}
+
+.nav-link-dark {
+    --bs-nav-link-color: black;
+    --bs-nav-link-hover-color: black;
+}
+
 
 
 
