@@ -36,6 +36,7 @@ a {
     background-color: #afda5c;
 }
 
+
 .color-second {
     color: #f2e9e3;
 }
@@ -44,6 +45,8 @@ a {
     --bs-focus-ring-color: rgba(var(--bs-success-rgb), .25);
                    
 }
+
+
 
 
 

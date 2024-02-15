@@ -1,6 +1,10 @@
 
 
 
+let form = document.querySelector("form");
+
+
+
 
 function mostraPassword(elemento) {
 
