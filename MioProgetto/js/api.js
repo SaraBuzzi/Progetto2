@@ -100,7 +100,7 @@ function randomCategories() {
     return num;
 }
 
-
+//container.querySelectorAll("[data-category='beef'").forEach((el ) => el.remove();)
 
 // AREAS
 

@@ -746,7 +746,7 @@
 
 
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -1008,7 +1008,7 @@
 
 
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
@@ -1270,11 +1270,11 @@
 
 
                                             </a>
-                        
+
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -1286,17 +1286,18 @@
                         <div id="impostazioni">
                             <div class="container d-flex justify-content-center mt-2">
                                 <div class="bg-light p-3 rounded-5 fit-content">
-                                        <h3 class="text-uppercase fs-4 fw-medium mb-3">personal info</h3>
-                                    
+                                    <h3 class="text-uppercase fs-4 fw-medium mb-3">personal info</h3>
+
                                     <div class="row">
                                         <form action="" onsubmit="" name="registration_form">
-                                            
+
                                             <div class="row mb-3">
                                                 <div class="col-6">
                                                     <label for="password" class="form-label">Password</label>
                                                     <input name="password" id="password"
-                                                        class="form-control focus-ring focus-ring-green password" type="password" value=""
-                                                        oninput="controllaCampo(this)" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                                        class="form-control focus-ring focus-ring-green password"
+                                                        type="password" value="" oninput="controllaCampo(this)"
+                                                        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                                         aria-describedby="password-info">
                                                     <div class="invalid-feedback">
                                                         The password does not meet the requirements
@@ -1306,25 +1307,29 @@
                                                     <label for="password2" class="form-label">Confirm password</label>
                                                     <div class="row mb-3">
                                                         <div class="col">
-                                                            <input id="password2" class="form-control focus-ring focus-ring-green password"
-                                                                oninput="controllaUguaglianzaPassword(this)" type="password" value="">
+                                                            <input id="password2"
+                                                                class="form-control focus-ring focus-ring-green password"
+                                                                oninput="controllaUguaglianzaPassword(this)"
+                                                                type="password" value="">
                                                             <div class="invalid-feedback">
                                                                 The passwords are different
                                                             </div>
                                                         </div>
-                                                        <div class="col-2 ms-1 d-flex justify-content-end align-items-center ">
+                                                        <div
+                                                            class="col-2 ms-1 d-flex justify-content-end align-items-center ">
                                                             <button type="button" class="btn btn-light border"
                                                                 onclick="mostraPassword(this)">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                    fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor" class="bi bi-eye"
+                                                                    viewBox="0 0 16 16">
                                                                     <path
                                                                         d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
                                                                     <path
                                                                         d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                                                 </svg>
-                                                                <svg class="d-none" xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                    height="16" fill="currentColor" class="bi bi-eye-slash"
-                                                                    viewBox="0 0 16 16">
+                                                                <svg class="d-none" xmlns="http://www.w3.org/2000/svg"
+                                                                    width="16" height="16" fill="currentColor"
+                                                                    class="bi bi-eye-slash" viewBox="0 0 16 16">
                                                                     <path
                                                                         d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
                                                                     <path
@@ -1334,31 +1339,36 @@
                                                                 </svg>
                                                             </button>
                                                         </div>
-                    
+
                                                     </div>
-                    
+
                                                 </div>
                                                 <div id="password-info" class="form-text">
-                                                    The password must be above 8 characters and it must contain a letter and a number
+                                                    The password must be above 8 characters and it must contain a letter
+                                                    and a number
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <label for="nome" class="form-label">First name</label>
-                                                    <input name="nome" id="nome" class="form-control focus-ring focus-ring-green"
-                                                        type="text" value="" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
+                                                    <input name="nome" id="nome"
+                                                        class="form-control focus-ring focus-ring-green" type="text"
+                                                        value="" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$"
+                                                        required>
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
-                    
+
                                                     <label for="lname" class="form-label">Last name</label>
-                                                    <input name="lname" id="lname" class="form-control focus-ring focus-ring-green"
-                                                        type="text" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
+                                                    <input name="lname" id="lname"
+                                                        class="form-control focus-ring focus-ring-green" type="text"
+                                                        oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <label for="gender" class="form-label">Sex</label>
-                                                    <select name="gender" id="gender" class="form-control focus-ring focus-ring-green">
+                                                    <select name="gender" id="gender"
+                                                        class="form-control focus-ring focus-ring-green">
                                                         <option>M</option>
                                                         <option>W</option>
                                                         <option>Other</option>
@@ -1366,21 +1376,23 @@
                                                 </div>
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <label for="date" class="form-label">Date of Birth</label>
-                                                    <input name="date" id="birthdate" class="form-control focus-ring focus-ring-green "
-                                                        type="date" oninput="controllaData(this)"  required>
+                                                    <input name="date" id="birthdate"
+                                                        class="form-control focus-ring focus-ring-green " type="date"
+                                                        oninput="controllaData(this)" required>
                                                 </div>
                                             </div>
                                             <div class="mb-3 form-check">
                                                 <input type="checkbox" class="form-check-input " id="checkbox" required>
-                                                <label class="form-check-label" for="checkbox">I accept terms of use and privacy
+                                                <label class="form-check-label" for="checkbox">I accept terms of use and
+                                                    privacy
                                                     policy</label>
                                             </div>
                                             <div class=" d-flex justify-content-end">
                                                 <button type="reset" class="btn btn-outline-dark me-2">Cancel</button>
-                    
+
                                                 <button type="submit" class="btn btn-dark">Save</button>
                                             </div>
-                    
+
                                         </form>
 
                                     </div>
@@ -1434,8 +1446,13 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"></script>
 
-        <script>
+        <script src="../js/storage.js"></script>
+        <script src="../js/form.js"></script>
+        <script src="../js/api.js"></script>
+        <script src="../js/script.js"></script>
 
+        <script>
+            console.log(getUtenteLoggato());
         </script>
 
 

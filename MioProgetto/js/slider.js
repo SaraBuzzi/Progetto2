@@ -1,4 +1,3 @@
-
 function next(button) {
     //Find components
     let slider_id = button.getAttribute("data-slider-for");
