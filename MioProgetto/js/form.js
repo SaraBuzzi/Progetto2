@@ -39,3 +39,19 @@ function controllaUguaglianzaPassword(password2) {
     }
 
 }
+
+
+//Controllo che la data non sia futura
+function controllaData(date) {
+    let dateValue = Date.parse(date.value);
+    let today = new Date().getTime(); 
+
+    if (dateValue <= today) {
+        date.classList.add("is-valid");
+        date.classList.remove("is-invalid");
+    } else {
+        date.classList.remove("is-valid");
+        date.classList.add("is-invalid");
+    }
+
+}

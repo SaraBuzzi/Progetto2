@@ -433,9 +433,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
+                                    <!-- <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
                                             you forgot your password?</a>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
@@ -528,13 +528,13 @@
                             <div class="col-md-6 col-12 mb-3">
                                 <label for="nome" class="form-label">First name</label>
                                 <input name="nome" id="nome" class="form-control focus-ring focus-ring-green"
-                                    type="text" value="" required>
+                                    type="text" value="" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
                             </div>
                             <div class="col-md-6 col-12 mb-3">
 
                                 <label for="lname" class="form-label">Last name</label>
                                 <input name="lname" id="lname" class="form-control focus-ring focus-ring-green"
-                                    type="text" required>
+                                    type="text" oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$" required>
                             </div>
                         </div>
                         <div class="row">
@@ -548,12 +548,12 @@
                             </div>
                             <div class="col-md-6 col-12 mb-3">
                                 <label for="date" class="form-label">Date of Birth</label>
-                                <input name="date" id="birthdate" class="form-control focus-ring focus-ring-green"
-                                    type="date" required>
+                                <input name="date" id="birthdate" class="form-control focus-ring focus-ring-green "
+                                    type="date" oninput="controllaData(this)"  required>
                             </div>
                         </div>
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input " id="checkbox" checked>
+                            <input type="checkbox" class="form-check-input " id="checkbox" required>
                             <label class="form-check-label" for="checkbox">I accept terms of use and privacy
                                 policy</label>
                         </div>
@@ -597,6 +597,9 @@
         </div>
     </div>
 
+
+
+
     <!-- link javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -607,8 +610,8 @@
     <script src="js/slider.js"></script>
     <script src="js/form.js"></script>
     <script src="js/api.js"></script>
+    <script src="js/script.js"></script>
     <script type="module">
-
         // riempire il carosello
         let categoriesInfo = await getCategoriesInfo();
         let firstSlide = randomCategories();
@@ -663,6 +666,9 @@
             template_card2.parentElement.appendChild(card);
         }
 
+
+
+        
     </script>
 
 
