@@ -179,10 +179,11 @@
             <!-- Cards -->
             <div class="sliding-container overflow-x-hidden">
                 <div class="sliding-window d-flex gap-3">
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
+                    <template id="t-card1">
+                      <div data-slider-scope="card" class="card flex-shrink-0" style="width: 15rem;">
+                        <a class="card-link" href="pag/ricetta.html?id=0">
                             <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img-top" alt="...">
+                                class="card-img card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
 
@@ -196,7 +197,7 @@
                                         </svg>
                                     </a>
 
-                                    <a href="#" class="btn btn-outline-dark">
+                                    <a href="#" class="btn btn-outline-dark comment-link">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
                                             <path
@@ -208,217 +209,10 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/wxswxy1511452625.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 2</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 3</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 4</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 5</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/wxswxy1511452625.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 6</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/wqqvyq1511179730.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 7</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a href="pag/ricetta.html?id=0">
-                            <img src="https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 8</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    </div>  
+                    </template>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -438,13 +232,13 @@
                     </div>
 
                     <div class="col-7">
-                        <div id="carousel-categories" class="carousel slide">
+                        <div id="carousel-categoriesInfo" class="carousel slide">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carousel-categories" data-bs-slide-to="0"
+                                <button type="button" data-bs-target="#carousel-categoriesInfo" data-bs-slide-to="0"
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carousel-categories" data-bs-slide-to="1"
+                                <button type="button" data-bs-target="#carousel-categoriesInfo" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carousel-categories" data-bs-slide-to="2"
+                                <button type="button" data-bs-target="#carousel-categoriesInfo" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner mx-auto w-60 rounded shadow-4 ">
@@ -472,13 +266,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-categories"
-                                data-bs-slide="prev" style="width: 40%;">
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carousel-categoriesInfo" data-bs-slide="prev" style="width: 40%;">
                                 <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel-categories"
-                                data-bs-slide="next" style="width: 40%;">
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carousel-categoriesInfo" data-bs-slide="next" style="width: 40%;">
                                 <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -532,8 +326,8 @@
             <!-- Cards -->
             <div class="sliding-container overflow-x-hidden">
                 <div class="sliding-window d-flex gap-3">
-                    <!-- <template id="t-card"> -->
-                        <div data-slider-scope="card" class="card" style="min-width: 15rem;">
+                    <template id="t-card2">
+                        <div data-slider-scope="card" class="card flex-shrink-0" style="width: 15rem;">
                             <a class="card-link" href="">
                                 <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
                                     class="card-img card-img-top" alt="...">
@@ -563,217 +357,8 @@
                                 </div>
                             </a>
                         </div>
-                    <!-- </template> -->
-                    <div id="c1" data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
+                    </template>
 
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="c2" data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="c3" data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="c4" data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="c5" data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div data-slider-scope="card" class="card" style="min-width: 15rem;">
-                        <a class="card-link" href="">
-                            <img src="https://www.themealdb.com/images/media/meals/yqwtvu1487426027.jpg"
-                                class="card-img card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
-
-                                <div class="hstack gap-3 d-flex justify-content-center">
-                                    <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                                            <path
-                                                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#" class="btn btn-outline-dark">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                                            <path
-                                                d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
 
                 </div>
@@ -1025,47 +610,58 @@
     <script type="module">
 
         // riempire il carosello
-        let categories = await getCategories();
+        let categoriesInfo = await getCategoriesInfo();
         let firstSlide = randomCategories();
         let secondSlide = randomCategories();
         let thirdSlide = randomCategories();
 
-        document.querySelector("#nome1").textContent = categories.categories[firstSlide]["strCategory"];
-        // document.querySelector("#testo1").textContent = categories.categories[0]["strCategoryDescription"];
-        document.querySelector("#foto1").src = categories.categories[firstSlide]["strCategoryThumb"];
+        document.querySelector("#nome1").textContent = categoriesInfo.categories[firstSlide]["strCategory"];
+        // document.querySelector("#testo1").textContent = categoriesInfo.categoriesInfo[0]["strCategoryDescription"];
+        document.querySelector("#foto1").src = categoriesInfo.categories[firstSlide]["strCategoryThumb"];
 
-        document.querySelector("#nome2").textContent = categories.categories[secondSlide]["strCategory"];
-        // document.querySelector("#testo2").textContent = categories.categories[5]["strCategoryDescription"];
-        document.querySelector("#foto2").src = categories.categories[secondSlide]["strCategoryThumb"];
+        document.querySelector("#nome2").textContent = categoriesInfo.categories[secondSlide]["strCategory"];
+        // document.querySelector("#testo2").textContent = categoriesInfo.categoriesInfo[5]["strCategoryDescription"];
+        document.querySelector("#foto2").src = categoriesInfo.categories[secondSlide]["strCategoryThumb"];
 
-        document.querySelector("#nome3").textContent = categories.categories[thirdSlide]["strCategory"];
-        // document.querySelector("#testo3").textContent = categories.categories[10]["strCategoryDescription"];
-        document.querySelector("#foto3").src = categories.categories[thirdSlide]["strCategoryThumb"];
+        document.querySelector("#nome3").textContent = categoriesInfo.categories[thirdSlide]["strCategory"];
+        // document.querySelector("#testo3").textContent = categoriesInfo.categoriesInfo[10]["strCategoryDescription"];
+        document.querySelector("#foto3").src = categoriesInfo.categories[thirdSlide]["strCategoryThumb"];
 
+
+        // riempire slider 1
+        let template_card = document.querySelector("#t-card1");
+
+        for (let i = 0; i < 12; i++) {
+            let randomCard = await random();
+            let card = template_card.content.cloneNode(true);
+
+            card.querySelector(".card-img").src = randomCard["strMealThumb"];
+            card.querySelector(".card-title").textContent = randomCard["strMeal"];
+            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + randomCard["idMeal"];
+            card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + randomCard["idMeal"];
+            template_card.parentElement.appendChild(card);
+        }
 
         // riempire slider 2
         let areas = await getAreas();
-        let randomArea = areas.meals[randomAreas()]["strArea"];
+        let randomArea = areas[randomAreas()]["strArea"];
 
         document.querySelector("#titolo-area").textContent = randomArea + " recipes";
         let ricetteArea = await getByArea(randomArea);
 
-        let card1 = document.getElementById("#c1");
-        card1.querySelector(".card-title").textContent = ricetteArea[0]["strMeal"];
-        card1.querySelector(".card-img").img = ricetteArea[0]["strMealThumb"];
-        card1.querySelector(".card-title").href = "pag/ricetta.html?id=" + ricetteArea[0]["idMeal"];
+        
+
+        let template_card2 = document.querySelector("#t-card2");
 
 
-
-        // let template_card = document.querySelector("#t-card");
-
-        //  for (let i = 1; i <= ricetteArea.length ; i++) {
-        //      let card = template_card.content.cloneNode(true);
-        //      card.querySelector(".card-img").src = ricetteArea[i]["strMealThumb"];
-        //      card.querySelector(".card-title").textContent = ricetteArea[i]["strMeal"];
-        //      card.querySelector(".card-link").href = "pag/ricetta.html?id=" + ricetteArea[i]["idMeal"];
-        //      template_card.parentElement.appendChild(card);
-        //  }
+        for (let i = 0; i < ricetteArea.meals.length; i++) {
+            let card = template_card2.content.cloneNode(true);
+            
+            card.querySelector(".card-img").src = ricetteArea.meals[i]["strMealThumb"];
+            card.querySelector(".card-title").textContent = ricetteArea.meals[i]["strMeal"];
+            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + ricetteArea.meals[i]["idMeal"];
+            template_card2.parentElement.appendChild(card);
+        }
 
     </script>
 
