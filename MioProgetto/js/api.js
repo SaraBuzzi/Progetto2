@@ -10,11 +10,35 @@ async function random() {
     return random;
 }
 
-// SEARCH   
+
+async function getByFirstLetter(letter) {
+    let meals;
+    await fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=" + letter)
+        .then(response => response.json())
+        .then(response => {
+            //Elaborazione
+            meals = response.meals;
+        })
+        .catch(err => console.error(err));
+    return meals;
+}
+
+async function getByName(name) {
+    let meal;
+    await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + name)
+        .then(response => response.json())
+        .then(response => {
+            //Elaborazione
+            meal = response.meals[0];
+        })
+        .catch(err => console.error(err));
+    return meal;
+}
 
 
 
-// GET BY
+
+
 async function getById(id) {
     let meal;
     await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
@@ -68,31 +92,19 @@ async function getByIngredient(ingredient) {
 
 
 
-// CATEGORIES
 
-async function getCategoriesInfo() {
-    let categoriesInfo;
+async function getCategories() {
+    let categories;
     await fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            categoriesInfo = response;
-        })
-        .catch(err => console.error(err));
-    return categoriesInfo;
-}
-
-async function getCategories() {
-    let categories;
-    await fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
-        .then(response => response.json())
-        .then(response => {
-            //Elaborazione
-            categories = response.meals;
+            categories = response;
         })
         .catch(err => console.error(err));
     return categories;
 }
+
 
 function randomCategories() {
     let num;
@@ -102,7 +114,6 @@ function randomCategories() {
 
 //container.querySelectorAll("[data-category='beef'").forEach((el ) => el.remove();)
 
-// AREAS
 
 async function getAreas() {
     let areas;

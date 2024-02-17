@@ -12,3 +12,14 @@ if (getUtenteLoggato()) {
 function getURLParam(name) {
     return new URLSearchParams(window.location.search).get(name);
 }
+
+ //categoria o area checkata
+ function check(input) {
+    input.classList.toggle("checked");
+}
+
+//ricerca 
+function searchByName(name) {
+    let recipe = getByName(name);
+    document.querySelector("#ricerca").href = "../pag/ricetta.html?id=" + recipe["idMeal"]
+}
