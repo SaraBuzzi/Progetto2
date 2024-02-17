@@ -13,16 +13,16 @@ function getURLParam(name) {
     return new URLSearchParams(window.location.search).get(name);
 }
 
-//categoria o area checkata
-async function toggleCards(input) {
+//categoria checkata
+async function toggleCategoryCards(input) {
     let category_name = input.id;
     if (input.checked) {
         let slider_categorie = document.querySelector("#sliding_window_categorie");
         let template_container = document.querySelector("#template_8cards_category")
-        let template_card_category = document.querySelector("#template_card");
+        let template_card_category = document.querySelector("#template_card_c");
     
         let recipes = await getByCategory(category_name);
-    
+       
         let container;
         let i;
         for (i = 0; i < recipes.length; i++) {
@@ -34,7 +34,6 @@ async function toggleCards(input) {
                     slider_categorie.appendChild(container);
                 }
                 container = template_container.content.cloneNode(true);
-                //console.log(container);
             }
             //Crea recipe e appendi al container corrente
             let recipe = recipes[i];
@@ -45,10 +44,9 @@ async function toggleCards(input) {
             card.querySelector(".card-link").href = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipe["idMeal"];
             container.querySelector(".cards").appendChild(card);
         }
-        console.log(i);
+        
         if (i % 8 != 0) {
             for (i; i % 8 != 0; i++) {
-                console.log(i);
                 let card = template_card_category.content.cloneNode(true);
                 card.querySelector(".card-img").src = recipes[0]["strMealThumb"];
                 card.querySelector(".card-title").textContent = recipes[0]["strMeal"];
@@ -67,25 +65,60 @@ async function toggleCards(input) {
     }
 }
 
-//ricerca 
-async function search() {
-    let name = document.querySelector("#ricerca").value;
-    console.log(name)
 
-    if (name.length > 1) {
-        let recipe = await getByName(name);
-        document.querySelector("#ricerca").href = "../pag/ricetta.html?id=" + recipe["idMeal"]
+// area checkata
+async function toggleAreaCards(input) {
+    let area_name = input.id;
+    if (input.checked) {
+        let slider_aree = document.querySelector("#sliding_window_area");
+        let template_container = document.querySelector("#template_8cards_area")
+        let template_card_area = document.querySelector("#template_card_a");
+    
+        let recipes = await getByArea(area_name);
+    
+        let container;
+        let i;
+        for (i = 0; i < recipes.length; i++) {
+            // se è finito lo spazio del container da 8 carte, ne creiamo un altro
+            if (i % 8 == 0) {
+                if (container) {
+                    container.querySelector(".cards").setAttribute("data-area", area_name);
+                    container.querySelector(".category-name").textContent =  area_name;
+                    slider_aree.appendChild(container);
+                }
+                container = template_container.content.cloneNode(true);
+               
+            }
+            //Crea recipe e appendi al container corrente
+            let recipe = recipes[i];
+            let card = template_card_area.content.cloneNode(true);
+            card.querySelector(".card-img").src = recipe["strMealThumb"];
+            card.querySelector(".card-title").textContent = recipe["strMeal"];
+            card.querySelector(".card-save").setAttribute("data-recipe", recipe["idMeal"]);
+            card.querySelector(".card-link").href = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipe["idMeal"];
+            container.querySelector(".cards").appendChild(card);
+        }
+        
+        if (i % 8 != 0) {
+            for (i; i % 8 != 0; i++) {
+                let card = template_card_area.content.cloneNode(true);
+                card.querySelector(".card-img").src = recipes[0]["strMealThumb"];
+                card.querySelector(".card-title").textContent = recipes[0]["strMeal"];
+                card.querySelector(".card-link").href = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + recipes[0]["idMeal"];
+                card.querySelector("*").style.visibility = "hidden";
+                container.querySelector(".cards").appendChild(card);
+            }
+        }
+        container.querySelector(".cards").setAttribute("data-area", area_name);
+        container.querySelector(".category-name").textContent =  area_name;
+        slider_aree.appendChild(container);
+    
     } else {
-        //ricerca per lettera 
-
-
+        let container_da_eliminare = document.querySelectorAll("[data-area='" + area_name + "']");
+        container_da_eliminare.forEach((container) => container.parentElement.remove());
     }
-
 }
 
-function remeberItem(button) {
-    button.classList.toggle("da-salvare")
-}
 
 function addToCookbook() {
 

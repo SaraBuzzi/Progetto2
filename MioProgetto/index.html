@@ -194,8 +194,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
                                     <div class="hstack gap-3 d-flex justify-content-center">
-                                        <button href="#" class="btn btn-outline-dark " data-bs-toggle="modal"
-                                            data-bs-target="#recipe-note" onclick="event.preventDefault(); remeberItem(this)">
+                                        <button class="card-save btn btn-outline-dark " data-bs-toggle="modal"
+                                            data-bs-target="#recipe-note" onclick="event.preventDefault()">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
                                                 <path
@@ -248,7 +248,7 @@
                             <div class="carousel-inner mx-auto w-60 rounded shadow-4 ">
                                 <div class="carousel-item active">
                                     <a class="category-link" href="">
-                                        <img id="foto1" src="img/beef.png" class="d-block w-100" alt="...">
+                                        <img id="foto1" src="#" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5 id="nome1" class="fs-2 ">First slide label</h5>
                                         <!-- <div id="testo1" class="d-flex text-truncate fs-5">Some representative placeholder content for the first slide.</div> -->
@@ -256,7 +256,7 @@
                                     
                                 </div>
                                 <div class="carousel-item">
-                                    <a href="" class="category-link"><img id="foto2" src="img/chicken.png" class="d-block w-100" alt="...">
+                                    <a href="" class="category-link"><img id="foto2" src="#" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5 id="nome2" class="fs-2 ">Second slide label</h5>
                                         <!-- <div id="testo2" class="d-flex text-truncate fs-5">Some representative placeholder content for the second slide.</div> -->
@@ -268,7 +268,7 @@
                                 </div>
                                 <a href="" class="category-link">
                                     <div class="carousel-item">
-                                    <img id="foto3" src="img/lamb.png" class="d-block w-100" alt="...">
+                                    <img id="foto3" src="#" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5 id="nome3" class="fs-2 ">Third slide label</h5>
                                         <!-- <div id="testo3" class="d-flex text-truncate fs-5">Some representative placeholder content for the third slide.</div> -->
@@ -345,7 +345,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase text-center mb-3">Card title 1</h5>
                                     <div class="hstack gap-3 d-flex justify-content-center">
-                                        <button href="#" class="btn btn-outline-dark" data-bs-toggle="modal"
+                                        <button class="card-save btn btn-outline-dark" data-bs-toggle="modal"
                                             data-bs-target="#recipe-note" onclick="event.preventDefault();">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
@@ -603,7 +603,7 @@
                     </div>
 
                     <div class=" d-flex justify-content-end mt-4">
-                        <button type="submit" class="btn btn-dark" onclick="addToCookbook()">Add to your cookbook</button>
+                        <button type="submit" class="save-recipe btn btn-dark" onclick="saveRecipe(this)" data-bs-dismiss="modal" aria-label="Close">Add to your cookbook</button>
                     </div>
                 </div>
             </div>
@@ -656,10 +656,11 @@
             let randomCard = await random();
             let card = template_card.content.cloneNode(true);
 
-            card.querySelector(".card-img").src = randomCard["strMealThumb"];
-            card.querySelector(".card-title").textContent = randomCard["strMeal"];
-            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + randomCard["idMeal"];
-            card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + randomCard["idMeal"];
+            card.querySelector(".card-img").src = randomCard.strMealThumb;
+            card.querySelector(".card-title").textContent = randomCard.strMeal;
+            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + randomCard.idMeal;
+            card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + randomCard.idMeal;
+            card.querySelector(".card-save").setAttribute("data-recipe", randomCard.idMeal);
             template_card.parentElement.appendChild(card);
         }
 
@@ -680,10 +681,11 @@
         for (let i = 0; i < ricetteArea.meals.length; i++) {
             let card = template_card2.content.cloneNode(true);
 
-            card.querySelector(".card-img").src = ricetteArea.meals[i]["strMealThumb"];
-            card.querySelector(".card-title").textContent = ricetteArea.meals[i]["strMeal"];
-            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + ricetteArea.meals[i]["idMeal"];
-            card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + ricetteArea.meals[i]["idMeal"];
+            card.querySelector(".card-img").src = ricetteArea.meals[i].strMealThumb;
+            card.querySelector(".card-title").textContent = ricetteArea.meals[i].strMeal;
+            card.querySelector(".card-link").href = "pag/ricetta.html?id=" + ricetteArea.meals[i].idMeal;
+            card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + ricetteArea.meals[i].idMeal;
+            card.querySelector(".card-save").setAttribute("data-recipe", ricetteArea.meals[i].idMeal);
             template_card2.parentElement.appendChild(card);
         }
 

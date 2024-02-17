@@ -57,7 +57,7 @@ async function getByArea(areaName) {
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            areaRecipes = response;
+            areaRecipes = response.meals;
         })
         .catch(err => console.error(err));
     return areaRecipes;

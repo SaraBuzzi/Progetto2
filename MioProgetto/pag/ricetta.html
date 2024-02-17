@@ -111,7 +111,7 @@
 
                                 </div>
                                 <div class="col-2 d-flex justify-content-end align-items-center">
-                                    <a class="loggato d-none btn btn-outline-dark" data-bs-toggle="modal"
+                                    <a class="loggato d-none btn btn-outline-dark card-save" data-bs-toggle="modal"
                                         data-bs-target="#recipe-note">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
                                             fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
@@ -656,11 +656,11 @@
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Scrivi la tua nota" id="recipe-note"
                             style="height: 100px"></textarea>
-                        <label for="recipe-note">Leave a comment for this recipe...</label>
+                        <label for="recipe-note">Leave here a comment for this recipe...</label>
                     </div>
 
                     <div class=" d-flex justify-content-end mt-4">
-                        <button type="submit" class="btn btn-dark">Add to your cookbook</button>
+                        <button type="submit" class="save-recipe btn btn-dark" onclick="saveRecipe(this)" data-bs-dismiss="modal" aria-label="Close">Add to your cookbook</button>
                     </div>
                 </div>
             </div>
@@ -736,6 +736,7 @@
         document.querySelector("#recipe_img").src = dati.strMealThumb;
         document.querySelector("#recipe_instructions").textContent = dati.strInstructions;
         document.querySelector("#recipe_info").textContent = dati.strCategory + " | " + dati.strArea
+        document.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal)
 
         let template_ingrediente = document.querySelector("#recipe_ingredient");
 
