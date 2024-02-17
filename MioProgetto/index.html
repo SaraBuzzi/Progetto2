@@ -71,16 +71,16 @@
                             </div>
                             <div class="col d-lg-flex justify-content-end gap-4 my-3 ms-lg-5 me-5 me-lg-0">
                                 <li class="nav-item">
-                                    <form class="d-flex" role="search">
+                                    <form class="d-flex" role="search" action="pag/ricerca.html">
                                         <input  class="form-control me-2 w-auto focus-ring focus-ring-light"
-                                            type="search" placeholder="Search" aria-label="Search">
-                                        <a id="ricerca" class="btn btn-outline-light me-2" onclick="search()">
+                                            type="search" name="search" id="search" placeholder="Search" aria-label="Search">
+                                        <button type="submit" class="btn btn-outline-light me-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                                 <path
                                                     d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                                             </svg>
-                                        </a>
+                                        </button>
                                         <a class="loggato d-none btn btn-outline-light" href="pag/account.html">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                 fill="currentColor" class="bi bi-person" viewBox="0 0 20 20">
@@ -634,18 +634,19 @@
         let secondSlide = randomCategories();
         let thirdSlide = randomCategories();
 
-        document.querySelector("#nome1").textContent = categoriesInfo.categories[firstSlide]["strCategory"];
+
+        document.querySelector("#nome1").textContent = categoriesInfo[firstSlide]["strCategory"];
         // document.querySelector("#testo1").textContent = categoriesInfo.categoriesInfo[0]["strCategoryDescription"];
-        document.querySelector("#foto1").src = categoriesInfo.categories[firstSlide]["strCategoryThumb"];
-        // document.querySelector(".category-link").href = categoriesInfo.categories    RICERCA PER CATEGORIA
+        document.querySelector("#foto1").src = categoriesInfo[firstSlide]["strCategoryThumb"];
+        document.querySelectorAll(".category-link")[0].href = "pag/ricerca.html?category=" +  categoriesInfo[firstSlide]["strCategory"]   //RICERCA PER CATEGORIA
 
-        document.querySelector("#nome2").textContent = categoriesInfo.categories[secondSlide]["strCategory"];
+        document.querySelector("#nome2").textContent = categoriesInfo[secondSlide]["strCategory"];
         // document.querySelector("#testo2").textContent = categoriesInfo.categoriesInfo[5]["strCategoryDescription"];
-        document.querySelector("#foto2").src = categoriesInfo.categories[secondSlide]["strCategoryThumb"];
+        document.querySelector("#foto2").src = categoriesInfo[secondSlide]["strCategoryThumb"];
 
-        document.querySelector("#nome3").textContent = categoriesInfo.categories[thirdSlide]["strCategory"];
+        document.querySelector("#nome3").textContent = categoriesInfo[thirdSlide]["strCategory"];
         // document.querySelector("#testo3").textContent = categoriesInfo.categoriesInfo[10]["strCategoryDescription"];
-        document.querySelector("#foto3").src = categoriesInfo.categories[thirdSlide]["strCategoryThumb"];
+        document.querySelector("#foto3").src = categoriesInfo[thirdSlide]["strCategoryThumb"];
 
 
         // riempire slider 1
@@ -661,6 +662,7 @@
             card.querySelector(".comment-link").href = "pag/ricetta.html?id=" + randomCard["idMeal"];
             template_card.parentElement.appendChild(card);
         }
+
 
         
         // riempire slider 2

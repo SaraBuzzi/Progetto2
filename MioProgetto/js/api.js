@@ -29,7 +29,7 @@ async function getByName(name) {
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            meal = response.meals[0];
+            meal = response.meals;
         })
         .catch(err => console.error(err));
     return meal;
@@ -71,7 +71,7 @@ async function getByCategory(category) {
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            categoryRecipes = response;
+            categoryRecipes = response.meals;
         })
         .catch(err => console.error(err));
     return categoryRecipes;
@@ -99,7 +99,7 @@ async function getCategories() {
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            categories = response;
+            categories = response.categories;
         })
         .catch(err => console.error(err));
     return categories;
