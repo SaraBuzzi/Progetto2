@@ -14,19 +14,22 @@ function getURLParam(name) {
 }
 
  //categoria o area checkata
- function check(input) {
+function check(input) {
     input.classList.toggle("checked");
 }
 
 //ricerca 
 async function search() {
     let name = document.querySelector("#ricerca").value;
+    console.log(name)
 
     if (name.length > 1) {
        let recipe = await getByName(name);
         document.querySelector("#ricerca").href = "../pag/ricetta.html?id=" + recipe["idMeal"] 
     } else {
         //ricerca per lettera 
+
+
     }
     
 }

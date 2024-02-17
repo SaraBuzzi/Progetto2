@@ -229,8 +229,8 @@
 
                         <!-- Cards -->
                         <div class="sliding-container overflow-x-hidden">
-
-                            <div class="sliding-window d-flex gap-3" id="template_category_grid">
+                            <template id="template_category_grid">
+                                <div class="sliding-window d-flex gap-3 category" >
                                 <template id="template_8cards_category">
                                     <div data-slider-scope="card" class="d-grid gap-3"
                                         style="grid-template-columns: repeat(4, auto)">
@@ -510,10 +510,8 @@
                                     </div>
                                 </template>
                             </div>
-
-
-
-
+                            </template>
+                        
                         </div>
                     </div>
                 </div>
@@ -1661,10 +1659,13 @@
 
 
         //ricerca categoria
-        let container_dei_container = document.querySelector("#template_category_grid");
         let template_container = document.querySelector("#template_8cards_category")
+        let template_dei_container = document.querySelector("#template_category_grid");
+       
+        //let templates = document.querySelectorAll("template<template")
 
-
+        console.log(template_container)
+        
         // let checked-category = 
 
         let recipes = await getByCategory("Pasta");
