@@ -89,10 +89,8 @@
 
 
     <!-- utente loggato -->
-    <section class="loggato d-none">
+    <section class="loggato ">
 
-
-        <!-- Account -->
         <div class="container-xxl mx-auto mt-5">
             <div class="bg-light p-3 rounded-5 d-block">
                 <div class="container">
@@ -112,7 +110,7 @@
                                     <h3 id="utente-cognome">Buzzi</h3>
                                 </div>
                             </div>
-                            <div class=" row">
+                            <div class="row">
                                 <div class="col-6 col-6 mb-3">
                                     <label for="email">Email</label>
                                     <h3 id="utente-email">sara@gmail.com</h3>
@@ -127,7 +125,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="container-xxl mx-auto mt-3">
             <div class="bg-white rounded-5 p-3 my-5">
@@ -153,6 +151,123 @@
                                 <div id="ricettario" class="d-flex gap-3">
                                     <!-- Colonna -->
                                     <div class="flex-nowrap">
+                                        <template id="template_cookbook_card">
+                                          <div class="card mb-3" style="width: 450px;">
+                                            <a href="../pag/ricetta.html?id=0">
+                                                <div class="row g-0">
+                                                    <div class="col-md-5">
+                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
+                                                            alt="...">
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col">
+                                                                    <h5 class="card-title text-uppercase">Lamb
+                                                                        Pilaf
+                                                                        (Plov)
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-1 d-flex justify-content-end">
+                                                                    <button class="btn btn-sm btn-outline-dark">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="16" height="16" fill="currentColor"
+                                                                            class="bi bi-suit-heart-fill"
+                                                                            viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                            <p class="card-text">Nota personale</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>  
+                                        </template>
+                                        
+                                        <div class="card mb-3" style="width: 450px;">
+                                            <a href="../pag/ricetta.html?id=0">
+                                                <div class="row g-0">
+                                                    <div class="col-md-5">
+                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
+                                                            alt="...">
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col">
+                                                                    <h5 class="card-title text-uppercase">Lamb
+                                                                        Pilaf
+                                                                        (Plov)
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-1 d-flex justify-content-end">
+                                                                    <button class="btn btn-sm btn-outline-dark">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="16" height="16" fill="currentColor"
+                                                                            class="bi bi-suit-heart-fill"
+                                                                            viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                            <p class="card-text">Nota personale</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <div class="card mb-3" style="width: 450px;">
+                                            <a href="../pag/ricetta.html?id=0">
+                                                <div class="row g-0">
+                                                    <div class="col-md-5">
+                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
+                                                            alt="...">
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center">
+                                                                <div class="col">
+                                                                    <h5 class="card-title text-uppercase">Lamb
+                                                                        Pilaf
+                                                                        (Plov)
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-1 d-flex justify-content-end">
+                                                                    <button class="btn btn-sm btn-outline-dark">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            width="16" height="16" fill="currentColor"
+                                                                            class="bi bi-suit-heart-fill"
+                                                                            viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                                                        </svg>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                            <p class="card-text">Nota personale</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <!-- Colonna -->
+                                    <div class="flex-nowrap">
                                         <div class="card mb-3" style="width: 450px;">
                                             <a href="../pag/ricetta.html?id=0">
                                                 <div class="row g-0">
@@ -343,7 +458,7 @@
                                         </div>
                                         <div class="card mb-3" style="width: 450px;">
                                             <a href="../pag/ricetta.html?id=0">
-                                                <div class="row g-0">
+                                                <ediv class="row g-0">
                                                     <div class="col-md-5">
                                                         <img src="../img/prova2.png" class="img-fluid rounded-start"
                                                             alt="...">
@@ -374,128 +489,14 @@
 
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </a>
-
                                         </div>
-                                    </div>
-                                    <!-- Colonna -->
-                                    <div class="flex-nowrap">
-                                        <div class="card mb-3" style="width: 450px;">
-                                            <a href="../pag/ricetta.html?id=0">
-                                                <div class="row g-0">
-                                                    <div class="col-md-5">
-                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
-                                                            alt="...">
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h5 class="card-title text-uppercase">Lamb
-                                                                        Pilaf
-                                                                        (Plov)
-                                                                    </h5>
-                                                                </div>
-                                                                <div class="col-1 d-flex justify-content-end">
-                                                                    <button class="btn btn-sm btn-outline-dark">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16" height="16" fill="currentColor"
-                                                                            class="bi bi-suit-heart-fill"
-                                                                            viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
+                                        </a>
 
-                                                            <p class="card-text">Nota personale</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                        </div>
-                                        <div class="card mb-3" style="width: 450px;">
-                                            <a href="../pag/ricetta.html?id=0">
-                                                <div class="row g-0">
-                                                    <div class="col-md-5">
-                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
-                                                            alt="...">
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h5 class="card-title text-uppercase">Lamb
-                                                                        Pilaf
-                                                                        (Plov)
-                                                                    </h5>
-                                                                </div>
-                                                                <div class="col-1 d-flex justify-content-end">
-                                                                    <button class="btn btn-sm btn-outline-dark">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16" height="16" fill="currentColor"
-                                                                            class="bi bi-suit-heart-fill"
-                                                                            viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-
-                                                            <p class="card-text">Nota personale</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                        </div>
-                                        <div class="card mb-3" style="width: 450px;">
-                                            <a href="../pag/ricetta.html?id=0">
-                                                <div class="row g-0">
-                                                    <div class="col-md-5">
-                                                        <img src="../img/prova2.png" class="img-fluid rounded-start"
-                                                            alt="...">
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div class="card-body">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h5 class="card-title text-uppercase">Lamb
-                                                                        Pilaf
-                                                                        (Plov)
-                                                                    </h5>
-                                                                </div>
-                                                                <div class="col-1 d-flex justify-content-end">
-                                                                    <button class="btn btn-sm btn-outline-dark">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16" height="16" fill="currentColor"
-                                                                            class="bi bi-suit-heart-fill"
-                                                                            viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                                                                        </svg>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-
-                                                            <p class="card-text">Nota personale</p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <!-- Reviews -->
                         <div class="tab-pane fade overflow-x-hidden" id="v-pills-recensioni" role="tabpanel"
                             aria-labelledby="v-pills-recensioni-tab" tabindex="0">
@@ -519,7 +520,9 @@
                                                 <a href="">
                                                     <div class="d-flex justify-content-between align-items-end">
                                                         <h5 class="card-title">Special title treatment</h5>
-                                                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#delete-review" onclick="event.preventDefault()">
+                                                        <button class="btn btn-outline-dark" data-bs-toggle="modal"
+                                                            data-bs-target="#delete-review"
+                                                            onclick="event.preventDefault()">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor"
                                                                 class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -1288,7 +1291,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -1433,11 +1435,12 @@
                 </div>
             </div>
         </div>
+        
 
     </section>
 
     <!-- utente non loggato -->
-    <section class="non-loggato">
+    <section class="non-loggato d-none">
         <div class="container-xxl mx-auto mt-5">
             <div class="bg-light p-3 rounded-5 d-block">
                 <div class="container">
@@ -1456,7 +1459,7 @@
 
 
 
-    
+
 
     <!-- Modal eliminare recensione -->
     <div class="modal fade" id="delete-review" tabindex="-1" aria-labelledby="delete-review" aria-hidden="true">
@@ -1526,7 +1529,7 @@
         document.querySelector("#utente-cognome").textContent = utente["cognome"];
         document.querySelector("#utente-email").textContent = utente["email"];
         document.querySelector("#utente-data").textContent = utente["data"];
-        
+
 
     </script>
 

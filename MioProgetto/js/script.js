@@ -19,7 +19,22 @@ function getURLParam(name) {
 }
 
 //ricerca 
-function searchByName(name) {
-    let recipe = getByName(name);
-    document.querySelector("#ricerca").href = "../pag/ricetta.html?id=" + recipe["idMeal"]
+async function search() {
+    let name = document.querySelector("#ricerca").value;
+
+    if (name.length > 1) {
+       let recipe = await getByName(name);
+        document.querySelector("#ricerca").href = "../pag/ricetta.html?id=" + recipe["idMeal"] 
+    } else {
+        //ricerca per lettera 
+    }
+    
+}
+
+function remeberItem(button) {
+    button.classList.toggle("da-salvare")
+}
+
+function addToCookbook() {
+    
 }
