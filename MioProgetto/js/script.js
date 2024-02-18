@@ -13,57 +13,67 @@ function getURLParam(name) {
     return new URLSearchParams(window.location.search).get(name);
 }
 
+function pickRandom(array) {
+    let element;
+    element = array[Math.floor(Math.random() * array.length)];
+    return element;
+}
+
 //categoria checkata
 async function toggleCategoryCards(input) {
     let category_name = input.id;
-    if (input.checked) {
-        let slider_categorie = document.querySelector("#sliding_window_categorie");
-        let template_container = document.querySelector("#template_8cards_category")
-        let template_card_category = document.querySelector("#template_card_c");
+    let slider_categorie = document.querySelector("#sliding_window_categorie");
+    let slider_container = document.querySelector("#" + slider_categorie.getAttribute("data-slider-for"));
+    let template_container = document.querySelector("#template_8cards_category");
 
-        let recipes = await getByCategory(category_name);
-
-        let container;
-        let i;
-        for (i = 0; i < recipes.length; i++) {
-            // se è finito lo spazio del container da 8 carte, ne creiamo un altro
-            if (i % 8 == 0) {
-                if (container) {
-                    container.querySelector(".cards").setAttribute("data-category", category_name);
-                    container.querySelector(".category-name").textContent = category_name;
-                    slider_categorie.appendChild(container);
-                }
-                container = template_container.content.cloneNode(true);
-            }
-            //Crea recipe e appendi al container corrente
-            let recipe = recipes[i];
-            let card = template_card_category.content.cloneNode(true);
-            card.querySelector(".card-img").src = recipe.strMealThumb;
-            card.querySelector(".card-title").textContent = recipe.strMeal;
-            card.querySelector(".card-save").setAttribute("data-recipe", recipe.idMeal);
-            card.querySelector(".card-link").href = "../pag/ricetta.html?id=" + recipe.idMeal;
-            container.querySelector(".cards").appendChild(card);
+    //Verifico toggle on / off
+    if (!input.checked) {
+        //Toggle OFF => Elimino le card (solo se c'è almeno un'altra categoria selezionata)
+        if (document.querySelectorAll("#categories_input > .form-check > input:checked").length > 0) {
+            let container_da_eliminare = document.querySelectorAll("[data-category='" + category_name + "']");
+            container_da_eliminare.forEach((container) => container.parentElement.remove());
+        } else {
+            input.checked = true;
         }
-
-        //card hidden che occupano lo spazio del containere
-        if (i % 8 != 0) {
-            for (i; i % 8 != 0; i++) {
-                let card = template_card_category.content.cloneNode(true);
-                card.querySelector(".card-img").src = recipes[0].strMealThumb;
-                card.querySelector(".card-title").textContent = recipes[0].strMeal;
-                card.querySelector(".card-link").href = "../pag/ricetta.html?id=" + recipes[0].idMeal;
-                card.querySelector("*").style.visibility = "hidden";
-                container.querySelector(".cards").appendChild(card);
-            }
-        }
-        container.querySelector(".cards").setAttribute("data-category", category_name);
-        container.querySelector(".category-name").textContent = category_name;
-        slider_categorie.appendChild(container);
-
-    } else {
-        let container_da_eliminare = document.querySelectorAll("[data-category='" + category_name + "']");
-        container_da_eliminare.forEach((container) => container.parentElement.remove());
+        //Reset to first slide
+        slider_container.setAttribute("data-slider-current", 1);
+        console.log(slider_container);
+        slider_container.querySelector("button.previous").click();
+        return;
     }
+
+    //Toggle ON => Inserisco le card
+    let recipes = await getByCategory(category_name);
+    let container, i, count_containers = 0;
+    for (i = 0; i < recipes.length || i % 8 != 0; i++) {
+        // se è finito lo spazio del container da 8 carte, lo aggiungo e ne creo un altro
+        if (i % 8 == 0) {
+            if (container) {
+                container.querySelector(".cards8").setAttribute("data-category", category_name);
+                container.querySelector(".category-name").textContent = category_name;
+                slider_categorie.appendChild(container);
+                count_containers++;
+            }
+            container = template_container.content.cloneNode(true);
+        }
+        if (i >= recipes.length) {
+            //Crea recipe INVISIBILE e appendi al container corrente
+            let card = creaCard(recipes[0], "");
+            card.querySelector("*").style.visibility = "hidden";
+            container.querySelector(".cards8").appendChild(card);
+        } else {
+            //Crea recipe e appendi al container corrente
+            let card = creaCard(recipes[i], "");
+            container.querySelector(".cards8").appendChild(card);
+        }
+    }
+    container.querySelector(".cards8").setAttribute("data-category", category_name);
+    container.querySelector(".category-name").textContent = category_name;
+    slider_categorie.appendChild(container);
+    count_containers++;
+    slider_container.setAttribute("data-slider-current", slider_categorie.querySelectorAll("[data-slider-scope='card']").length - count_containers);
+    slider_container.querySelector("button.next").click();
+    slider_container.querySelector("button.previous").click();
 }
 
 
@@ -162,38 +172,35 @@ function saveRecipe(button) {
 //ricerca per nome
 async function search(ricerca) {
     document.querySelector("#ricerca").classList.remove("d-none");
+    let container = document.querySelector("#risultati_ricerca");
 
-    let template_card = document.querySelector("#t-card1");
     let meals = await getByName(ricerca);
 
     //ricerca per nome
     if (meals) {
         for (let meal of meals) {
-            let card = template_card.content.cloneNode(true);
-            card.querySelector(".card-img").src = meal.strMealThumb;
-            card.querySelector(".card-title").textContent = meal.strMeal;
-            card.querySelector(".card-link").href = "../pag/ricetta.html?id=" + meal.idMeal;
-            card.querySelector(".comment-link").href = "../pag/ricetta.html?id=" + meal.idMeal;
-            card.querySelector(".card-save").setAttribute("data-recipe", meal.idMeal);
-            template_card.parentElement.appendChild(card);
+            let card = creaCard(meal, "");
+            container.appendChild(card);
         }
         //ricerca per lettera
     } else {
         meals = await getByFirstLetter(ricerca);
         if (meals) {
             for (let meal of meals) {
-                let card = template_card.content.cloneNode(true);
-                card.querySelector(".card-img").src = meal.strMealThumb;
-                card.querySelector(".card-title").textContent = meal.strMeal;
-                card.querySelector(".card-link").href = "../pag/ricetta.html?id=" + meal.idMeal;
-                card.querySelector(".comment-link").href = "../pag/ricetta.html?id=" + meal.idMeal;
-                card.querySelector(".card-save").setAttribute("data-recipe", meal.idMeal);
-                template_card.parentElement.appendChild(card);
+                let card = creaCard(meal, "");
+                container.appendChild(card);
             }
         }
     }
+}
 
-
-    
-
+function creaCard(dati, prefisso) {
+    let template_card = document.querySelector("#t-card");
+    let card = template_card.content.cloneNode(true);
+    card.querySelector(".card-img").src = dati.strMealThumb;
+    card.querySelector(".card-title").textContent = dati.strMeal;
+    card.querySelector(".card-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
+    card.querySelector(".comment-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
+    card.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal);
+    return card;
 }
