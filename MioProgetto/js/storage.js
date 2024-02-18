@@ -21,7 +21,6 @@ function provaLogin(email, password) {
     let trovato = utenti_attuali.filter((utente) => utente.email == email && utente.password == password);
     
     if (trovato.length > 0) {
-        console.log("Trovato");
         sessionStorage.setItem("utente_loggato", email);
         return true; 
     } 
@@ -40,14 +39,42 @@ function getUtenteLoggato() {
 }
 
 function addToCookbook(recipe) {
-    let cookbook = JSON.parse(localStorage.getItem("cookbook"));
+    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+    let email = sessionStorage.getItem("utente_loggato");
 
-    if (!cookbook) {
-        cookbook = [];
+    for (let i = 0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == email) {
+            utenti_attuali[i].cookbook.push(recipe);
+        }
+    }
+    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+}
+
+function modificaDatiUtente(nuovo_utente) {
+    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+
+    for (let i = 0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == nuovo_utente.email) {
+            utenti_attuali[i] = nuovo_utente;
+        }
     }
 
-    cookbook.push(recipe);
-    localStorage.setItem("cookbook", JSON.stringify(recipe));
+    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+}
+
+//Cancella utente loggato
+function cancellaUtente() {
+    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+    let email = sessionStorage.getItem("utente_loggato");
+
+    for (let i = 0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == email) {
+            utenti_attuali.splice(i, 1); 
+        }
+    }
+    
+    sessionStorage.removeItem("utente_loggato");
+    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
 function addReview(review) {

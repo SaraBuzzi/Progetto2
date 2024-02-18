@@ -37,7 +37,6 @@ async function toggleCategoryCards(input) {
         }
         //Reset to first slide
         slider_container.setAttribute("data-slider-current", 1);
-        console.log(slider_container);
         slider_container.querySelector("button.previous").click();
         return;
     }
@@ -180,6 +179,7 @@ async function search(ricerca) {
     if (meals) {
         for (let meal of meals) {
             let card = creaCard(meal, "");
+            card.querySelector("*").setAttribute("data-slider-scope", "card");
             container.appendChild(card);
         }
         //ricerca per lettera
@@ -188,12 +188,14 @@ async function search(ricerca) {
         if (meals) {
             for (let meal of meals) {
                 let card = creaCard(meal, "");
+                card.querySelector("*").setAttribute("data-slider-scope", "card");
                 container.appendChild(card);
             }
         }
     }
 }
 
+//Per index prefisso = "pag/", per gli altri prefisso = ""
 function creaCard(dati, prefisso) {
     let template_card = document.querySelector("#t-card");
     let card = template_card.content.cloneNode(true);
