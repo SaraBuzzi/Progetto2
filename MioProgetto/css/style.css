@@ -165,6 +165,20 @@ a {
     text-transform: uppercase;
 }
 
+.cards8 .area-name {
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    padding: 0.4rem 0.7rem;
+    background-color: #afda5c;
+    border-radius: 0.5rem;
+    z-index: 99;
+    text-transform: uppercase;
+}
+
+
 .sliding-window:has(> .cards_container:nth-of-type(2)) > * > .if-empty-only{
     display: none !important;
 }

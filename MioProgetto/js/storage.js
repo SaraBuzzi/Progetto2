@@ -1,3 +1,5 @@
+
+//registra utente nel local storage
 function registraUtente(utente) {
 
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
@@ -11,6 +13,7 @@ function registraUtente(utente) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+//effettua login se i dati inseriti corrispondono ad un utente esistente
 function provaLogin(email, password) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
 
@@ -27,6 +30,7 @@ function provaLogin(email, password) {
     return false;
 } 
 
+//restituisce l'utente loggato
 function getUtenteLoggato() {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
     let email = sessionStorage.getItem("utente_loggato");
@@ -38,18 +42,36 @@ function getUtenteLoggato() {
     return null;
 }
 
+//aggiunge la ricetta al ricettario dell'utente loggato
 function addToCookbook(recipe) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
     let email = sessionStorage.getItem("utente_loggato");
 
     for (let i = 0; i < utenti_attuali.length; i++) {
         if (utenti_attuali[i].email == email) {
-            utenti_attuali[i].cookbook.push(recipe);
+    
+                utenti_attuali[i].cookbook.push(recipe);
+    
         }
     }
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+function remToCookbook(recipe) {
+    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+    let email = sessionStorage.getItem("utente_loggato");
+
+    for (let i = 0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == email) {
+    
+             utenti_attuali[i].cookbook.splice(i,1);
+    
+        }
+    }
+    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+}
+
+//modifica i campi dell'utente loggato
 function modificaDatiUtente(nuovo_utente) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
 
@@ -62,7 +84,7 @@ function modificaDatiUtente(nuovo_utente) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
-//Cancella utente loggato
+//cancella utente loggato
 function cancellaUtente() {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
     let email = sessionStorage.getItem("utente_loggato");
@@ -77,6 +99,8 @@ function cancellaUtente() {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+
+//aggiunge la recensione alla ricetta corrispondente
 function addReview(review) {
     
 }
