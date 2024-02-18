@@ -80,11 +80,11 @@ async function getByCategory(category) {
 
 async function getByIngredient(ingredient) {
     let ingredientRecipes;
-    await fetch("www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient)
+    await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=" + ingredient)
         .then(response => response.json())
         .then(response => {
             //Elaborazione
-            ingredientRecipes = response;
+            ingredientRecipes = response.meals;
         })
         .catch(err => console.error(err));
     return ingredientRecipes;

@@ -38,3 +38,18 @@ function getUtenteLoggato() {
     }
     return null;
 }
+
+function addToCookbook(recipe) {
+    let cookbook = JSON.parse(localStorage.getItem("cookbook"));
+
+    if (!cookbook) {
+        cookbook = [];
+    }
+
+    cookbook.push(recipe);
+    localStorage.setItem("cookbook", JSON.stringify(recipe));
+}
+
+function addReview(review) {
+    
+}

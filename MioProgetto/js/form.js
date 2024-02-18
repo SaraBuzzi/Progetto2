@@ -108,3 +108,36 @@ function controllaELogin(form) {
     document.querySelector(".login-errato").classList.remove("d-none");
     return false;
 }
+
+function controllaERegistraRecensione(form) {
+    let inputs = form.querySelectorAll("input");
+
+    for (let input of inputs) {
+        if (!input.checkValidity) {
+            return false; //Non inviare il form
+        }
+    }
+
+    if (!controllaData(form.querySelector("input#preparation-date"))) {
+        return false;
+    }
+
+    // form valido
+
+    let dati = new FormData(form);
+
+    let review = {
+
+        title = //nome ricetta o id
+        utente = //autore ricetta
+        text: dati.get("review-text"),
+        difficulty: dati.get("difficoltà"),
+        taste: dati.get("gusto"),
+        date: dati.get("preparation-date")
+    }
+
+
+    addReview(review);
+
+    return true;
+}
