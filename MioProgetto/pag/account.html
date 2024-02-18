@@ -1305,12 +1305,11 @@
                                         <h3 class="text-uppercase fs-4 fw-medium mb-3">personal info</h3>
 
                                         <div class="row">
-                                            <form action="" onsubmit="" name="registration_form">
-
+                                            <form action="" onsubmit="controllaEModificaUtente(this)" name="modify_form" id="modify-form">
                                                 <div class="row mb-3">
                                                     <div class="col-6">
                                                         <label for="password" class="form-label">Password</label>
-                                                        <input name="password" id="password"
+                                                        <input name="password-modify" id="password-modify"
                                                             class="form-control focus-ring focus-ring-green password"
                                                             type="password" value="" oninput="controllaCampo(this)"
                                                             pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
@@ -1370,7 +1369,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-12 mb-3">
                                                         <label for="nome" class="form-label">First name</label>
-                                                        <input name="nome" id="nome"
+                                                        <input name="nome-modify" id="nome-modify"
                                                             class="form-control focus-ring focus-ring-green" type="text"
                                                             value="" oninput="controllaCampo(this)"
                                                             pattern="[a-zA-Z]{2,}$" required>
@@ -1378,7 +1377,7 @@
                                                     <div class="col-md-6 col-12 mb-3">
 
                                                         <label for="lname" class="form-label">Last name</label>
-                                                        <input name="lname" id="lname"
+                                                        <input name="lname-modify" id="lname-modify"
                                                             class="form-control focus-ring focus-ring-green" type="text"
                                                             oninput="controllaCampo(this)" pattern="[a-zA-Z]{2,}$"
                                                             required>
@@ -1387,7 +1386,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-12 mb-3">
                                                         <label for="gender" class="form-label">Sex</label>
-                                                        <select name="gender" id="gender"
+                                                        <select name="gender-modify" id="gender-modify"
                                                             class="form-control focus-ring focus-ring-green">
                                                             <option>M</option>
                                                             <option>W</option>
@@ -1396,7 +1395,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-12 mb-3">
                                                         <label for="date" class="form-label">Date of Birth</label>
-                                                        <input name="date" id="birthdate"
+                                                        <input name="date-modify" id="birthdate-modify"
                                                             class="form-control focus-ring focus-ring-green "
                                                             type="date" oninput="controllaData(this)" required>
                                                     </div>
