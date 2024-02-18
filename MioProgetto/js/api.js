@@ -105,13 +105,6 @@ async function getCategories() {
     return categories;
 }
 
-
-function randomCategories() {
-    let num;
-    num = Math.floor(Math.random() * 10) + 4;
-    return num;
-}
-
 //container.querySelectorAll("[data-category='beef'").forEach((el ) => el.remove();)
 
 
@@ -126,13 +119,6 @@ async function getAreas() {
         .catch(err => console.error(err));
     return areas;
 }
-
-function randomAreas() {
-    let num;
-    num = Math.floor(Math.random() * 10) + 18;
-    return num;
-}
-
 
 
 

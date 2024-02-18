@@ -89,8 +89,6 @@
 
     </header>
 
-
-
     <section class="container-xxl mx-auto mt-5">
 
         <!-- Ricerca generica -->
@@ -171,7 +169,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Ricerca per categoria -->
         <div class="container-xxl text-center d-flex justify-content-center">
@@ -279,8 +276,6 @@
             </div>
         </div>
 
-
-
         <!-- Ricerca per area geografica -->
         <div class="container-xxl text-center d-flex justify-content-center">
             <div class="row w-100 mt-5">
@@ -385,9 +380,6 @@
 
     </section>
 
-
-
-
     <!-- Modal recipe note -->
     <div class="modal fade" id="recipe-note" tabindex="-1" aria-labelledby="recipe-note" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -441,12 +433,12 @@
         }
 
         if (ingrediente) {
-            
+
             document.querySelector("#ricerca").classList.remove("d-none");
 
             let template_card = document.querySelector("#t-card1");
             let meals = await getByIngredient(ingrediente);
-            
+
             for (let meal of meals) {
                 let card = template_card.content.cloneNode(true);
                 card.querySelector(".card-img").src = meal.strMealThumb;

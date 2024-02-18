@@ -13,6 +13,12 @@ function getURLParam(name) {
     return new URLSearchParams(window.location.search).get(name);
 }
 
+function pickRandom(array) {
+    let element;
+    element = array[Math.floor(Math.random() * array.length)];
+    return element;
+}
+
 //categoria checkata
 async function toggleCategoryCards(input) {
     let category_name = input.id;

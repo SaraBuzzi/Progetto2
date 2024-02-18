@@ -128,8 +128,8 @@ function controllaERegistraRecensione(form) {
 
     let review = {
 
-        title = //nome ricetta o id
-        utente = //autore ricetta
+        title: "", //nome ricetta o id
+        utente: "", //autore ricetta
         text: dati.get("review-text"),
         difficulty: dati.get("difficoltà"),
         taste: dati.get("gusto"),
