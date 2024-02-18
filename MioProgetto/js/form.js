@@ -27,9 +27,8 @@ function controllaCampo(campo) {
     }
 }
 
-function controllaUguaglianzaPassword(password2) {
-    let password1 = document.registration_form.password;
-
+function controllaUguaglianzaPassword(password1, password2) {
+    console.log(password1, password2);
     if (password1.value == password2.value) {
         password2.classList.add("is-valid");
         password2.classList.remove("is-invalid");
@@ -73,7 +72,7 @@ function controllaERegistraUtente(form) {
         return false;
     }
 
-    if (!controllaUguaglianzaPassword(form.querySelector("input#password2"))) {
+    if (!controllaUguaglianzaPassword(form.querySelector("input#password"), form.querySelector("input#password2"))) {
         return false;
     }
 
@@ -88,16 +87,11 @@ function controllaERegistraUtente(form) {
         cognome: dati.get("lname"),
         genere: dati.get("gender"),
         data: dati.get("date"),
+        cookbook: [],
     }
 
     registraUtente(nuovo_utente);
-
-    let settings = document.querySelector("#modify-form")
-    settings.querySelector("#password-modifiy").setAttribute("placeholder", dati.get("password"));
-    settings.querySelector("#nome-modifiy").setAttribute("placeholder", dati.get("nome"));
-    settings.querySelector("#lname-modifiy").setAttribute("placeholder", dati.get("lname"));
-    settings.querySelector("#gender-modifiy").setAttribute("placeholder", dati.get("gender"));
-    settings.querySelector("#date-modifiy").setAttribute("placeholder", dati.get("date"));
+    provaLogin(nuovo_utente.email, nuovo_utente.password);
 
     return true;
 
@@ -112,29 +106,32 @@ function controllaEModificaUtente(form) {
         }
     }
 
-    if (!controllaData(form.querySelector("input#birthdate"))) {
+    if (!controllaData(form.querySelector("input#birthdate-modify"))) {
         return false;
     }
 
-    if (!controllaUguaglianzaPassword(form.querySelector("input#password2"))) {
+    if (!controllaUguaglianzaPassword(form.querySelector("input#password-modify"), form.querySelector("input#password2-modify"))) {
         return false;
     }
 
     //form valido 
 
-    let utente = getUtenteLoggato();
+    let dati = new FormData(form);
 
-    utente = {
+    let utente_modificato = {
+        email: getUtenteLoggato().email,
         password: dati.get("password-modify"),
         nome: dati.get("nome-modify"),
         cognome: dati.get("lname-modify"),
         genere: dati.get("gender-modify"),
         data: dati.get("date-modify"),
+        cookbook: getUtenteLoggato().cookbook,
     }
 
-    //
+    console.log(utente_modificato);
+    modificaDatiUtente(utente_modificato);
+    return true;
 }
-
 
 
 function controllaELogin(form) {
@@ -151,38 +148,6 @@ function controllaELogin(form) {
     return false;
 }
 
-
-function controllaEModificaUtente(form) {
-    let inputs = form.querySelectorAll("input");
-
-    for (let input of inputs) {
-        if (!input.checkValidity) {
-            return false; //Non inviare il form
-        }
-    }
-
-    if (!controllaData(form.querySelector("input#birthdate"))) {
-        return false;
-    }
-
-    if (!controllaUguaglianzaPassword(form.querySelector("input#password2"))) {
-        return false;
-    }
-
-    //form valido 
-
-    let utente = getUtenteLoggato();
-
-    utente = {
-        password: dati.get("password-modify"),
-        nome: dati.get("nome-modify"),
-        cognome: dati.get("lname-modify"),
-        genere: dati.get("gender-modify"),
-        data: dati.get("date-modify"),
-    }
-
-    //
-}
 
 function controllaERegistraRecensione(form) {
     let inputs = form.querySelectorAll("input");
@@ -202,8 +167,8 @@ function controllaERegistraRecensione(form) {
     let dati = new FormData(form);
 
     let review = {
-        title: "", //nome ricetta o id
-        utente: "", //autore ricetta
+        title: getURLParam("id"), //id
+        utente: getUtenteLoggato().email, //autore ricetta
         text: dati.get("review-text"),
         difficulty: dati.get("difficoltà"),
         taste: dati.get("gusto"),

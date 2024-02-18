@@ -169,6 +169,7 @@
                                         d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                                 </svg>
                             </button>
+
                         </li>
                         <li class="page-item my-auto">
                             <button class="next" href="#" aria-label="Next" data-slider-for="slider1"
@@ -435,7 +436,7 @@
                                 <div class="row mb-3">
                                     <div class="col">
                                         <input id="password2" class="form-control focus-ring focus-ring-green password"
-                                            oninput="controllaUguaglianzaPassword(this)" type="password" value="">
+                                            oninput="controllaUguaglianzaPassword(document.querySelector('#password'), this)" type="password" value="">
                                         <div class="invalid-feedback">
                                             The passwords are different
                                         </div>
@@ -577,8 +578,6 @@
             </a>
         </div>
     </template>
-
-
 
 
     <!-- link javascript -->
