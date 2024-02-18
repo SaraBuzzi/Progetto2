@@ -149,6 +149,7 @@ a {
 
 .cards8 {
     position: relative;
+    display: grid;
 }
 
 .cards8 .category-name {
@@ -162,6 +163,10 @@ a {
     border-radius: 0.5rem;
     z-index: 99;
     text-transform: uppercase;
+}
+
+.sliding-window:has(> .cards_container:nth-of-type(2)) > * > .if-empty-only{
+    display: none !important;
 }
 
 
