@@ -91,6 +91,14 @@ function controllaERegistraUtente(form) {
     }
 
     registraUtente(nuovo_utente);
+
+    let settings = document.querySelector("#modify-form")
+    settings.querySelector("#password-modifiy").setAttribute("placeholder", dati.get("password"));
+    settings.querySelector("#nome-modifiy").setAttribute("placeholder", dati.get("nome"));
+    settings.querySelector("#lname-modifiy").setAttribute("placeholder", dati.get("lname"));
+    settings.querySelector("#gender-modifiy").setAttribute("placeholder", dati.get("gender"));
+    settings.querySelector("#date-modifiy").setAttribute("placeholder", dati.get("date"));
+
     return true;
 
 }
@@ -107,6 +115,39 @@ function controllaELogin(form) {
     }
     document.querySelector(".login-errato").classList.remove("d-none");
     return false;
+}
+
+
+function controllaEModificaUtente(form) {
+    let inputs = form.querySelectorAll("input");
+
+    for (let input of inputs) {
+        if (!input.checkValidity) {
+            return false; //Non inviare il form
+        }
+    }
+
+    if (!controllaData(form.querySelector("input#birthdate"))) {
+        return false;
+    }
+
+    if (!controllaUguaglianzaPassword(form.querySelector("input#password2"))) {
+        return false;
+    }
+
+    //form valido 
+
+    let utente = getUtenteLoggato();
+
+    utente = {
+        password: dati.get("password-modify"),
+        nome: dati.get("nome-modify"),
+        cognome: dati.get("lname-modify"),
+        genere: dati.get("gender-modify"),
+        data: dati.get("date-modify"),
+    }
+
+    //
 }
 
 function controllaERegistraRecensione(form) {
@@ -128,8 +169,8 @@ function controllaERegistraRecensione(form) {
 
     let review = {
 
-        title = //nome ricetta o id
-        utente = //autore ricetta
+        // title : //nome ricetta o id
+        // utente : //autore ricetta
         text: dati.get("review-text"),
         difficulty: dati.get("difficoltà"),
         taste: dati.get("gusto"),
