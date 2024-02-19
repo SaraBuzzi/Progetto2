@@ -33,6 +33,7 @@ function provaLogin(email, password) {
 //restituisce l'utente loggato
 function getUtenteLoggato() {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+    let email = sessionStorage.getItem("utente_loggato");
 
 
     if (email) {
@@ -101,6 +102,31 @@ function addReview(review) {
 }
 
 function remReview(review) {
+    let reviews = JSON.parse(localStorage.getItem("utenti"));
+    let email = sessionStorage.getItem("utente_loggato");
+
+    for (let i = 0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == email) {
+
+            utenti_attuali[i].cookbook.splice(i, 1);
+
+        }
+    }
+    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+}
+
+
+function getUserReviews() {
+    let email = sessionStorage.getItem("utente_loggato")
+    let reviews = JSON.parse(localStorage.getItem("recensioni"));
+    let user_reviews = []
+    for (let i= 0; i < reviews.length; i++) {
+        if (reviews[i].utente == email) {
+            user_reviews.push(review)
+        }
+    }
+    return user_reviews;
+
 
 }
 

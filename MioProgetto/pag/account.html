@@ -1115,14 +1115,7 @@
                                                             type="date" oninput="controllaData(this)" required>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3 form-check">
-                                                    <input type="checkbox" class="form-check-input " id="checkbox"
-                                                        required>
-                                                    <label class="form-check-label" for="checkbox">I accept terms of use
-                                                        and
-                                                        privacy
-                                                        policy</label>
-                                                </div>
+                                                
                                                 <div class=" d-flex justify-content-end">
                                                     <button type="reset"
                                                         class="btn btn-outline-dark me-2" onclick="logout()">Log out</button>
@@ -1440,16 +1433,14 @@
     <script src="../js/script.js"></script>
 
     <script type="module">
-        let utente = getUtenteLoggato();
 
+        //riempimento dati dell'utente loggato
+        let utente = getUtenteLoggato();
         if (utente.genere == "M") {
             document.querySelector("#utente-img").src = "../img/man.png"
         } else {
             document.querySelector("#utente-img").src = "../img/woman.png"
         }
-
-
-        //riempimento delle impostazioni
         document.querySelector("#utente-nome").textContent = utente.nome;
         document.querySelector("#nome-modify").value = utente.nome;
         document.querySelector("#password-modify").value = utente.password;
@@ -1495,6 +1486,11 @@
         //     ricettario.appendChild(container);
         // }
 
+
+
+        //riempimento recensioni dell'utente
+        let user_reviews = getUserReviews();
+        console.log(user_reviews)
     </script>
 
 

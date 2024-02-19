@@ -430,7 +430,7 @@
 
                     <div class="container d-flex justify-content-center align-items-center">
 
-                        <form onsubmit="return controllaELogin(this)">
+                        <form onsubmit="return controllaELogin(this)" >
                             <div class="row py-3 align-items-center">
                                 <div class="col-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -726,15 +726,29 @@
                 review_card.querySelector(".title_review").textContent = dati.strMeal; //uso i dati di sopra
                 review_card.querySelector(".text_review").textContent = review.text;
 
-                for (let i=1; i<=review.difficulty; i++) {
-                    
-                    let icon_d = t_diff.content.cloneNode(true);
-                    //icon_d.querySelector("svg").setAttribute("fill", currentColor)
-                    review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)
+                for (let i=1; i<=5; i++) {
+                      let icon_d = t_diff.content.cloneNode(true);
+                   
+                    if (i<=review.difficulty) {
+                    review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)  
+                    } else {
+                        icon_d.querySelector("svg").setAttribute("fill", "currentColor")
+                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)  
+                    }
+                     
                 }
-                for (let j=1; j<=review.taste; j++) {
+                for (let j=1; j<=5; j++) {
                     let icon_t = t_taste.content.cloneNode(true);
-                    review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
+                    if (j<=review.taste) {
+                        review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
+
+                    } else {
+                        icon_t.querySelector("svg").setAttribute("fill", "currentColor")
+
+                        review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
+
+                    }
+                   
                 }
 
 
