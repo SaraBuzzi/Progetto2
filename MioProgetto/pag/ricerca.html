@@ -534,7 +534,7 @@
                             </svg>
                         </button>
 
-                        <a href="#" class="btn btn-outline-dark comment-link">
+                        <a href="#" class="btn btn-outline-dark comment-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="See the reviews">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
                                 <path
@@ -629,6 +629,12 @@
             document.querySelector("#" + first_area.toLowerCase()).click();
         }
 
+
+        //tooltip
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 
     </script>
 

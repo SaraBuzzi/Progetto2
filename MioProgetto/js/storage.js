@@ -13,6 +13,17 @@ function registraUtente(utente) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+function utenteDoppio(utente) {
+    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+    
+    for (let i=0; i < utenti_attuali.length; i++) {
+        if (utenti_attuali[i].email == utente.email) {
+            return false;
+        }
+    }
+
+}
+
 //effettua login se i dati inseriti corrispondono ad un utente esistente
 function provaLogin(email, password) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
@@ -147,7 +158,7 @@ function getRecipeReviewStats(id) {
             }
         }
     } else {
-        localStorage.setItem("reviews", JSON.stringify({}));
+        localStorage.setItem("recensioni", JSON.stringify({}));
     }
     return {
         taste: '-',

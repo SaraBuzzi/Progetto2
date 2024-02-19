@@ -335,7 +335,6 @@
                 <div class="modal-body">
                     <!-- <form onsubmit="return controllaERegistraRecensione(this);" name="review_form"> -->
                     <div id="review_info">
-
                         <div class="form-floating">
                             <textarea name="review-text" class="form-control focus-ring focus-ring-green"
                                 placeholder="Scrivi la tua nota" id="recipe-review" style="height: 100px"
@@ -404,7 +403,7 @@
                         </div>
 
                         <div class=" d-flex justify-content-end mt-4">
-                            <button class="save-review btn btn-dark loggato d-none" onclick="saveReview()"
+                            <button class="save-review btn btn-dark loggato d-none" onclick="return saveReview()"
                                 data-bs-dismiss="modal" aria-label="Close">Publish</button>
                             <button class="save-review btn btn-dark non-loggato" data-bs-dismiss="modal"
                                 aria-label="Close" disabled>Publish</button>
@@ -675,7 +674,7 @@
 
 
         let id = getURLParam("id")
-
+        
         let dati = await getById(id);
         document.querySelector("#recipe_title").textContent = dati.strMeal;
         document.querySelector("#recipe_img").src = dati.strMealThumb;
@@ -702,12 +701,12 @@
 
         //recensioni
 
-
         let reviews = getReviewsById(id);
         
         if (!reviews) {
             document.querySelector(".zero_recensioni").classList.remove("d-none");
         } else {
+            
             let t_review = document.querySelector("#template_review");
             
             let t_diff = document.querySelector("#t_diff")

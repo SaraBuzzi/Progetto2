@@ -171,7 +171,11 @@ function saveRecipe(button) {
 function saveReview() {
     let review_info = document.querySelector("#review_info")
 
-  
+    if (!controllaData(review_info.querySelector("input#preparation-date"))) {
+        //non invia la recensione
+        return false;
+    }
+
     let review = {
         title: getURLParam("id"), //id
         utente: getUtenteLoggato().email, //autore ricetta
@@ -230,3 +234,8 @@ function creaCard(dati, prefisso) {
     card.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal);
     return card;
 }
+
+
+
+
+
