@@ -168,6 +168,27 @@ function saveRecipe(button) {
 
 }
 
+function saveReview() {
+    let review_info = document.querySelector("#review_info")
+
+  
+    let review = {
+        title: getURLParam("id"), //id
+        utente: getUtenteLoggato().email, //autore ricetta
+        text: review_info.querySelector("#recipe-review").value,
+        difficulty: parseInt(review_info.querySelector("#difficoltà").value) + 1,
+        taste:parseInt(review_info.querySelector("#gusto").value) +1,
+        date: review_info.querySelector("#preparation-date").value
+    }
+
+    addReview(review);
+    review_info.querySelector("#recipe-review").value = "";
+    review_info.querySelector("#difficoltà").value = 2;
+    review_info.querySelector("#gusto").value = 2;
+    review_info.querySelector("#preparation-date").value ="";
+
+}
+
 
 
 

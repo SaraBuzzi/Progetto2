@@ -325,9 +325,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="container d-flex justify-content-center align-items-center">
-                        <div class="text-danger login-errato d-none">
-                            Credenziali di accesso non valide
-                        </div>
+                        
                         <form onsubmit="return controllaELogin(this)">
                             <div class="row py-3 align-items-center">
                                 <div class="col-1">
@@ -381,7 +379,9 @@
                                             </button>
                                         </div>
                                     </div>
-
+                                    <div class=" mt-2 d-block text-danger text-center login-errato d-none">
+                                        Invalid email or password
+                                    </div>
                                     <!-- <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
                                             you forgot your password?</a>
                                     </div> -->
