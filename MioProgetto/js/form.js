@@ -163,7 +163,7 @@ function controllaERegistraRecensione(form) {
     }
 
     // form valido
-
+    console.log("è valido")
     let dati = new FormData(form);
 
     let review = {
@@ -175,7 +175,7 @@ function controllaERegistraRecensione(form) {
         date: dati.get("preparation-date")
     }
 
-
+    console.log(review)
     addReview(review);
 
     return true;

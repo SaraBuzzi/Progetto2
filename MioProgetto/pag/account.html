@@ -152,54 +152,60 @@
                             aria-labelledby="v-pills-ricettario-tab" tabindex="0">
                             <div class=" overflow-x-auto">
                                 <div id="ricettario" class="d-flex gap-3">
-                                    <!-- Colonna -->
-                                    <template id="template_colonna">
-                                        <div class="flex-nowrap"> 
-                                            <!-- qui verrannò inserite le card-->
+                                </div>
+                                <!-- Colonna -->
+                                <template id="template_colonna">
+                                    <div class="flex-nowrap">
+                                        <div class="cards3">
+                                          <!-- qui verrannò inserite le card-->  
                                         </div>
-                                    </template>
-                                   
-                                        <template id="template_cookbook_card">
-                                            <div class="card mb-3" style="width: 450px;">
-                                                <a class="cookbook-card-link" href="../pag/ricetta.html?id=0">
-                                                    <div class="row g-0">
-                                                        <div class="col-md-5">
-                                                            <img src="" class="img-fluid rounded-start cookbook-card-img" alt="...">
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            <div class="card-body">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col">
-                                                                        <h5 class="card-title cookbook-card-title text-uppercase">Lamb
-                                                                            Pilaf
-                                                                            (Plov)
-                                                                        </h5>
-                                                                    </div>
-                                                                    <div class="col-1 d-flex justify-content-end cookbook-card-save">
-                                                                        <button class="btn btn-sm btn-outline-dark">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                width="16" height="16"
-                                                                                fill="currentColor"
-                                                                                class="bi bi-suit-heart-fill"
-                                                                                viewBox="0 0 16 16">
-                                                                                <path
-                                                                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
+                                    </div>
+                                </template>
 
-                                                                <p class="cookbook-card-text">Nota personale</p>
-
+                                <template id="template_cookbook_card">
+                                    <div class="card mb-3" style="width: 450px;">
+                                        <a class="cookbook-card-link" href="ricetta.html?id=">
+                                            <div class="row g-0">
+                                                <div class="col-md-5">
+                                                    <img src="" class="img-fluid rounded-start cookbook-card-img"
+                                                        alt="...">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="card-body">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h5
+                                                                    class="card-title cookbook-card-title text-uppercase">
+                                                                    Lamb
+                                                                    Pilaf
+                                                                    (Plov)
+                                                                </h5>
+                                                            </div>
+                                                            <div
+                                                                class="col-1 d-flex justify-content-end cookbook-card-save">
+                                                                <button class="btn btn-sm btn-outline-dark">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                        height="16" fill="currentColor"
+                                                                        class="bi bi-suit-heart-fill"
+                                                                        viewBox="0 0 16 16">
+                                                                        <path
+                                                                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                                                    </svg>
+                                                                </button>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </a>
 
+                                                        <p class="cookbook-card-text">Nota personale</p>
+
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </template>
-                                    
-                                 </div>
+                                        </a>
+
+                                    </div>
+                                </template>
+
+
                             </div>
                         </div>
 
@@ -1230,6 +1236,8 @@
             document.querySelector("#utente-img").src = "../img/woman.png"
         }
 
+
+        //riempimento delle impostazioni
         document.querySelector("#utente-nome").textContent = utente.nome;
         document.querySelector("#nome-modify").value = utente.nome;
         document.querySelector("#password-modify").value = utente.password;
@@ -1240,27 +1248,40 @@
         document.querySelector("#utente-data").textContent = utente.data;
         document.querySelector("#birthdate-modify").value = utente.data;
 
-        let template_cookbook = document.querySelector("#template_cookbook_card");
-        let template_colonna = document.querySelector("#template_colonna");
-        console.log(template_colonna)
+
+        //ricettario
+        // let template_card = document.querySelector("#template_cookbook_card");
+        // let template_colonna = document.querySelector("#template_colonna");
+        // let ricettario = document.querySelector("#ricettario");
        
-        
-        for (let i=0; i < 3; i++) {
-            let recipe_id = utente.cookbook[i].id;
-            let recipe = await getById(recipe_id);
-            let note = utente.cookbook[i].text;
+
+        // let container;
+       
+        // for (let i = 0; i < utente.cookbook.length; i++) {
+        //     let recipe_id = utente.cookbook[i].id;
+        //     let recipe = await getById(recipe_id);
+        //     let note = utente.cookbook[i].text;
+        //     let card = template_card.content.cloneNode(true);
             
-            let card = template_cookbook.content.cloneNode(true);
-            let colonna = template_colonna.content.cloneNode(true);
-            card.querySelector(".cookbook-card-link").href = "ricetta.html?id=" + recipe.idMeal;
-            card.querySelector(".cookbook-card-img").src = recipe.strMealThumb;
-            card.querySelector(".cookbook-card-title").textContent = recipe.strMeal
-            card.querySelector(".cookbook-card-text").textContent = note;
-            card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
-            // card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
-           
-            template_colonna.parentElement.appendChild(template_cookbook.parentElement.appendChild(card));
-        }
+        //     if (i % 3 == 0) {
+        //         if (container) {
+        //             ricettario.appendChild(container);
+        //         }
+        //         container = template_colonna.content.cloneNode(true);
+
+        //     }
+            
+        //     card.querySelector(".cookbook-card-link").href += recipe.idMeal;
+        //     card.querySelector(".cookbook-card-img").src = recipe.strMealThumb;
+        //     card.querySelector(".cookbook-card-title").textContent = recipe.strMeal
+        //     card.querySelector(".cookbook-card-text").textContent = note;
+        //     card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
+        //     // card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
+
+        //     container.querySelector(".cards3").appendChild(card);
+        //     //perchè la card è nullaaaaa
+        //     ricettario.appendChild(container);
+        // }
 
     </script>
 

@@ -57,6 +57,8 @@ function addToCookbook(recipe) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+
+
 function remToCookbook(recipe) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
     let email = sessionStorage.getItem("utente_loggato");
@@ -70,6 +72,21 @@ function remToCookbook(recipe) {
     }
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
+
+//aggiunge una recensione 
+function addReview(review) {
+    let recipes = JSON.parse(localStorage.getItem("ricette_con_recensioni"));
+
+    if (!recipes) {
+        recipes = []
+    } 
+
+    recipes.push(review.id)
+
+
+    localStorage.setItem("ricette_con_recensioni", JSON.stringify(recipes))
+}
+
 
 //modifica i campi dell'utente loggato
 function modificaDatiUtente(nuovo_utente) {
@@ -100,7 +117,3 @@ function cancellaUtente() {
 }
 
 
-//aggiunge la recensione alla ricetta corrispondente
-function addReview(review) {
-    
-}

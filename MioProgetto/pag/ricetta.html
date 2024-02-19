@@ -690,7 +690,7 @@
                 <div class="modal-body">
                     <form onsubmit="return controllaERegistraRecensione(this);" name="review_form">
 
-                    </form>
+                   
                     <div class="form-floating">
                         <textarea name="review-text" class="form-control focus-ring focus-ring-green" placeholder="Scrivi la tua nota"
                             id="recipe-review" style="height: 100px" oninput="controllaCampo(this)" required></textarea>
@@ -751,13 +751,13 @@
                     <div class="row mt-3 ">
                         <label for="preparation-date" class="form-label fw-bold ">Date of Preparation</label>
                         <input name="preparation-date" id="preparation-date"
-                            class="form-control focus-ring focus-ring-green" type="date" oninput="controllaData(this)" required>
+                            class="form-control focus-ring focus-ring-green" value="" type="date" oninput="controllaData(this)" required>
                     </div>
 
                     <div class=" d-flex justify-content-end mt-4">
-                        <button type="submit" class="save-review btn btn-dark" data-bs-dismiss="modal"
-                            aria-label="Close" onclick="saveReview(this)">Publish</button>
+                        <button type="submit" class="save-review btn btn-dark" onclick="preventDefault()">Publish</button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -1006,6 +1006,9 @@
             template_ingrediente.parentElement.appendChild(ingrediente);
         }
 
+
+
+        //recensioni
 
         
     </script>
