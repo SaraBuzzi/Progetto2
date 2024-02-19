@@ -280,13 +280,13 @@
                                             <label for="difficoltà" class="form-label">Difficulty</label>
                                         </div>
                                         <div class="d-flex justify-content-start difficoltà_recensioni gap-1">
-                                            
+
                                         </div>
                                         <div class="row mt-2">
                                             <label for="gusto" class="form-label">Taste</label>
                                         </div>
                                         <div class="d-flex justify-content-start gusto_recensioni gap-1">
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -346,25 +346,15 @@
                                 <div class="col-6 fw-bold">
                                     Difficulty
                                 </div>
-                                <div class="col ">
+                                <div class="col">
                                     <input name="difficoltà" type="range" class="form-range" min="0" max="4" step="1"
                                         id="difficoltà" oninput="controllaCampo(this)" required>
-                                    <div class="row justify-content-between fs-4">
-                                        <div class="col">
-                                            1
-                                        </div>
-                                        <div class="col">
-                                            2
-                                        </div>
-                                        <div class="col">
-                                            3
-                                        </div>
-                                        <div class="col">
-                                            4
-                                        </div>
-                                        <div class="col">
-                                            5
-                                        </div>
+                                    <div class="d-flex justify-content-between fs-4">
+                                        <div> 1 </div>
+                                        <div> 2 </div>
+                                        <div> 3 </div>
+                                        <div> 4 </div>
+                                        <div> 5 </div>
                                     </div>
                                 </div>
                             </div>
@@ -375,22 +365,12 @@
                                 <div class="col">
                                     <input name="gusto" type="range" class="form-range" min="0" max="4" step="1"
                                         id="gusto" oninput="controllaCampo(this)" required>
-                                    <div class="row justify-content-between fs-4">
-                                        <div class="col">
-                                            1
-                                        </div>
-                                        <div class="col">
-                                            2
-                                        </div>
-                                        <div class="col">
-                                            3
-                                        </div>
-                                        <div class="col">
-                                            4
-                                        </div>
-                                        <div class="col">
-                                            5
-                                        </div>
+                                    <div class="d-flex justify-content-between fs-4">
+                                        <div> 1 </div>
+                                        <div> 2 </div>
+                                        <div> 3 </div>
+                                        <div> 4 </div>
+                                        <div> 5 </div>
                                     </div>
                                 </div>
                             </div>
@@ -429,7 +409,7 @@
 
                     <div class="container d-flex justify-content-center align-items-center">
 
-                        <form onsubmit="return controllaELogin(this)" >
+                        <form onsubmit="return controllaELogin(this)">
                             <div class="row py-3 align-items-center">
                                 <div class="col-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -674,7 +654,7 @@
 
 
         let id = getURLParam("id")
-        
+
         let dati = await getById(id);
         document.querySelector("#recipe_title").textContent = dati.strMeal;
         document.querySelector("#recipe_img").src = dati.strMealThumb;
@@ -683,7 +663,7 @@
         document.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal)
 
         let recipe_stats = getRecipeReviewStats(id)
-       
+
         document.querySelector("#diff_text").textContent = recipe_stats.difficulty;
         document.querySelector("#taste_text").textContent = recipe_stats.taste;
 
@@ -702,52 +682,43 @@
         //recensioni
 
         let reviews = getReviewsById(id);
-        
+
         if (!reviews) {
             document.querySelector(".zero_recensioni").classList.remove("d-none");
         } else {
-            
+
             let t_review = document.querySelector("#template_review");
-            
+
             let t_diff = document.querySelector("#t_diff")
-            
+
             let t_taste = document.querySelector("#t_gusto")
 
 
             for (let review of reviews) {
-
                 let review_card = t_review.content.cloneNode(true);
-                
-
-               
                 review_card.querySelector(".user_review").textContent = getNomeCognome(review.utente);
                 review_card.querySelector(".data_review").textContent = review.date;
                 review_card.querySelector(".title_review").textContent = dati.strMeal; //uso i dati di sopra
                 review_card.querySelector(".text_review").textContent = review.text;
-
-                for (let i=1; i<=5; i++) {
-                      let icon_d = t_diff.content.cloneNode(true);
-                   
-                    if (i<=review.difficulty) {
-                    review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)  
+                for (let i = 1; i <= 5; i++) {
+                    let icon_d = t_diff.content.cloneNode(true);
+                    if (i <= review.difficulty) {
+                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)
                     } else {
                         icon_d.querySelector("svg").setAttribute("fill", "currentColor")
-                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)  
+                        review_card.querySelector(".difficoltà_recensioni").appendChild(icon_d)
                     }
-                     
                 }
-                for (let j=1; j<=5; j++) {
+                for (let j = 1; j <= 5; j++) {
                     let icon_t = t_taste.content.cloneNode(true);
-                    if (j<=review.taste) {
+                    if (j <= review.taste) {
                         review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
 
                     } else {
                         icon_t.querySelector("svg").setAttribute("fill", "currentColor")
 
                         review_card.querySelector(".gusto_recensioni").appendChild(icon_t)
-
                     }
-                   
                 }
 
 
