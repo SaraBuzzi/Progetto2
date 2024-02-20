@@ -27,6 +27,21 @@ function controllaCampo(campo) {
     }
 }
 
+function controllaValiditaEUnicita(campo) {
+    if (!campo.checkValidity() || utenteDoppio(campo.value)) {
+        campo.classList.remove("is-valid");
+        campo.classList.add("is-invalid");
+        if (utenteDoppio(campo.value)) {
+            campo.nextElementSibling.textContent = "Email already in use";
+        } else {
+            campo.nextElementSibling.textContent = "Email not valid";
+        }
+    } else {
+        campo.classList.add("is-valid");
+        campo.classList.remove("is-invalid");
+    }
+}
+
 function controllaUguaglianzaPassword(password1, password2) {
     console.log(password1, password2);
     if (password1.value == password2.value) {
@@ -66,6 +81,10 @@ function controllaERegistraUtente(form) {
         if (!input.checkValidity) {
             return false; //Non inviare il form
         }
+    }
+
+    if (!controllaValiditaEUnicita(form.querySelector("input#email"))) {
+        return false;
     }
 
     if (!controllaData(form.querySelector("input#birthdate"))) {

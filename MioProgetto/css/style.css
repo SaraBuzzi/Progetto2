@@ -183,6 +183,18 @@ a {
     display: none !important;
 }
 
+.card .bi-suit-heart-fill {
+    display: none;
+}
+
+.card[data-saved] .bi-suit-heart-fill {
+    display: block;
+}
+
+.card[data-saved] .bi-suit-heart {
+    display: none;
+}
+
 
 /*
 body {

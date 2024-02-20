@@ -94,29 +94,26 @@
 
         <div class="container-xxl mx-auto mt-5">
             <div class="bg-light p-3 rounded-5 d-block">
-                <div class="container">
-                    <div class="row ms-5">
-                        <div class="col-3">
+                <div class="w-100">
+                    <div class="d-lg-flex justify-content-center gap-3 mx-lg-5">
+                        <div class="d-flex justify-content-center">
                             <img id="utente-img" src="../img/non-loggato.png" width="220 rem" height="220 rem" alt="">
                         </div>
-                        <div class="col mt-5">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-6 col-6 mb-3">
+                        <div class="mt-5">
+                            <div class="d-md-grid gap-2" style="grid-template-rows: auto auto; grid-template-columns: auto auto;">
+                                <div class="mb-3">
                                     <label for="nome">First Name</label>
                                     <h3 id="utente-nome"></h3>
                                 </div>
-                                <div class="col col mb-3">
-
+                                <div class="mb-3">
                                     <label for="cognome">Last Name</label>
                                     <h3 id="utente-cognome"></h3>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-6 mb-3">
+                                <div class="mb-3">
                                     <label for="email">Email</label>
                                     <h3 id="utente-email"></h3>
                                 </div>
-                                <div class="col col mb-3">
+                                <div class="mb-3">
                                     <label for="date">Date of Birth</label>
                                     <h3 id="utente-data"></h3>
                                 </div>
@@ -165,7 +162,7 @@
                                 </template>
 
                                 <template id="template_cookbook_card">
-                                    <div class="card mb-3" style="width: 450px;">
+                                    <div class="card mb-3" style="width: 450px;" data-saved>
                                         <a class="cookbook-card-link" href="ricetta.html?id=">
                                             <div class="row g-0">
                                                 <div class="col-md-5">
@@ -174,8 +171,8 @@
                                                 </div>
                                                 <div class="col-md-7">
                                                     <div class="card-body">
-                                                        <div class="row align-items-center">
-                                                            <div class="col">
+                                                        <div class="d-flex gap-1 align-items-start justify-content-between">
+                                                            <div>
                                                                 <h5
                                                                     class="card-title cookbook-card-title text-uppercase">
                                                                     Lamb
@@ -184,8 +181,8 @@
                                                                 </h5>
                                                             </div>
                                                             <div
-                                                                class="col-1 d-flex justify-content-end cookbook-card-save">
-                                                                <button class="btn btn-sm btn-outline-dark">
+                                                                class="d-flex justify-content-end cookbook-card-save">
+                                                                <button class="btn btn-sm btn-outline-dark" onclick="event.preventDefault(); remToCookbook(this.parentElement.getAttribute('data-recipe'));">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                         height="16" fill="currentColor"
                                                                         class="bi bi-suit-heart-fill"
@@ -258,9 +255,9 @@
                                                     <div class="d-flex justify-content-between align-items-end">
                                                         <h5 class="card-title review-card-recipe">Special title
                                                             treatment</h5>
-                                                        <button class="btn btn-outline-dark" data-bs-toggle="modal"
-                                                            data-bs-target="#delete-review"
-                                                            onclick="event.preventDefault()">
+                                                        <button class="btn btn-outline-dark review-card-delete" data-bs-toggle="modal"
+                                                            data-bs-target="#delete-review" data-recipe="" data-date="" data-text=""
+                                                            onclick="event.preventDefault(); remReview(this.getAttribute('data-recipe'), this.getAttribute('data-date'), this.getAttribute('data-text'))">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor"
                                                                 class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -464,26 +461,6 @@
             </div>
         </div>
     </section>
-
-
-    <!-- Modal eliminare recensione -->
-    <div class="modal fade" id="delete-review" tabindex="-1" aria-labelledby="delete-review" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-body-dark">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center  mt-3">
-                        <h4>Are you sure you want to delete it?</h4>
-                    </div>
-                    <div class="d-flex justify-content-center mt-3">
-                        <button type="submit" class="btn btn-outline-danger">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal eliminare account -->
     <div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="delete-account" aria-hidden="true">
@@ -781,7 +758,6 @@
             card.querySelector(".cookbook-card-title").textContent = recipe.strMeal
             card.querySelector(".cookbook-card-text").textContent = note;
             card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
-            // card.querySelector(".cookbook-card-save").setAttribute("data-recipe", recipe.idMeal);
 
             container.querySelector(".cards3").appendChild(card);
             //perchè la card è nullaaaaa
@@ -821,7 +797,9 @@
             card.querySelector(".review-card-recipe").textContent = recipe.strMeal;
             card.querySelector(".review-card-date").textContent = review.date;
             card.querySelector(".review-card-text").textContent = review.text;
-            //Manca l'attributo per la cancellazione della recensione
+            card.querySelector(".review-card-delete").setAttribute("data-recipe", recipe.idMeal);
+            card.querySelector(".review-card-delete").setAttribute("data-date", review.date);
+            card.querySelector(".review-card-delete").setAttribute("data-text", review.text);
 
             for (let i = 1; i <= 5; i++) {
                 let icon_d = t_diff.content.cloneNode(true);

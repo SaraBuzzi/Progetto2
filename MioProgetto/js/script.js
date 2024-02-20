@@ -181,15 +181,13 @@ function saveReview() {
         utente: getUtenteLoggato().email, //autore ricetta
         text: review_info.querySelector("#recipe-review").value,
         difficulty: parseInt(review_info.querySelector("#difficoltà").value) + 1,
-        taste:parseInt(review_info.querySelector("#gusto").value) +1,
+        taste: parseInt(review_info.querySelector("#gusto").value) + 1,
         date: review_info.querySelector("#preparation-date").value
     }
 
     addReview(review);
-    review_info.querySelector("#recipe-review").value = "";
-    review_info.querySelector("#difficoltà").value = 2;
-    review_info.querySelector("#gusto").value = 2;
-    review_info.querySelector("#preparation-date").value ="";
+
+    location.reload();
 
 }
 
@@ -221,6 +219,9 @@ async function search(ricerca) {
             }
         }
     }
+    if (container.childElementCount < 4) {
+        document.querySelector("#" + container.getAttribute("data-slider-for")).querySelector("button.next").disabled = true;
+    }
 }
 
 //Per index prefisso = "pag/", per gli altri prefisso = ""
@@ -232,6 +233,8 @@ function creaCard(dati, prefisso) {
     card.querySelector(".card-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
     card.querySelector(".comment-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
     card.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal);
+    if (getUtenteLoggato().cookbook.filter((el) => el.id == dati.idMeal).length >= 1)
+        card.querySelector("*").toggleAttribute("data-saved");
     return card;
 }
 

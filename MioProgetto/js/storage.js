@@ -17,11 +17,12 @@ function utenteDoppio(utente) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
     
     for (let i=0; i < utenti_attuali.length; i++) {
-        if (utenti_attuali[i].email == utente.email) {
-            return false;
+        if (utenti_attuali[i].email == utente) {
+            return true;
         }
     }
 
+    return false;
 }
 
 //effettua login se i dati inseriti corrispondono ad un utente esistente
@@ -81,18 +82,24 @@ function addToCookbook(recipe) {
 }
 
 
-function remToCookbook(recipe) {
-    let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
-    let email = sessionStorage.getItem("utente_loggato");
+function remToCookbook(recipe_id) {
+    let utente = getUtenteLoggato();
 
-    for (let i = 0; i < utenti_attuali.length; i++) {
-        if (utenti_attuali[i].email == email) {
-
-            utenti_attuali[i].cookbook.splice(i, 1);
-
+    for (let i = 0; i < utente.cookbook.length; i++) {
+        if (utente.cookbook[i].id == recipe_id) {
+            utente.cookbook.splice(i, 1);
         }
     }
-    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+
+    let utenti = JSON.parse(localStorage.getItem("utenti"));
+
+    for (let i = 0; i < utenti.length; i++) {
+        if (utenti[i].email == utente.email) {
+            utenti[i] = utente;
+        }
+    }
+    localStorage.setItem("utenti", JSON.stringify(utenti));
+    location.reload();
 }
 
 //aggiunge la ricetta che ha recensioni
@@ -113,18 +120,18 @@ function addReview(review) {
     localStorage.setItem("recensioni", JSON.stringify(reviews))
 }
 
-function remReview(review) {
-    let reviews = JSON.parse(localStorage.getItem("utenti"));
-    let email = sessionStorage.getItem("utente_loggato");
+function remReview(recipe_id, review_date, review_text) {
+    let user = getUtenteLoggato().email;
+    let reviews = JSON.parse(localStorage.getItem("recensioni"));
 
-    for (let i = 0; i < utenti_attuali.length; i++) {
-        if (utenti_attuali[i].email == email) {
-
-            utenti_attuali[i].cookbook.splice(i, 1);
-
+    for (let i = 0; i < reviews[recipe_id].length; i++) {
+        let review = reviews[recipe_id][i];
+        if (review.utente == user && review.date == review_date && review.text == review_text) {
+            reviews[recipe_id].splice(i, 1);
         }
     }
-    localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
+    localStorage.setItem("recensioni", JSON.stringify(reviews));
+    location.reload();
 }
 
 
