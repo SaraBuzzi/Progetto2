@@ -83,7 +83,7 @@ function controllaERegistraUtente(form) {
         }
     }
 
-    if (!controllaValiditaEUnicita(form.querySelector("input#email"))) {
+    if (controllaValiditaEUnicita(form.querySelector("input#email"))) {
         return false;
     }
 
@@ -168,36 +168,37 @@ function controllaELogin(form) {
 }
 
 
-// function controllaERegistraRecensione(form) {
-//     let inputs = form.querySelectorAll("input");
+function controllaERegistraRecensione(form) {
+    let inputs = form.querySelectorAll("input");
 
-//     for (let input of inputs) {
-//         if (!input.checkValidity) {
-//             return false; //Non inviare il form
-//         }
-//     }
+    for (let input of inputs) {
+        if (!input.checkValidity) {
+            return false; //Non inviare il form
+        }
+    }
 
-//     if (!controllaData(form.querySelector("input#preparation-date"))) {
-//         return false;
-//     }
+    if (!controllaData(form.querySelector("input#preparation-date"))) {
+        return false;
+    }
 
-//     // form valido
-//     console.log("è valido")
-//     let dati = new FormData(form);
+    // form valido
+    console.log("è valido")
+    let dati = new FormData(form);
 
-//     let review = {
-//         title: getURLParam("id"), //id
-//         utente: getUtenteLoggato().email, //autore ricetta
-//         text: dati.get("review-text"),
-//         difficulty: dati.get("difficoltà")+1,
-//         taste: dati.get("gusto")+1,
-//         date: dati.get("preparation-date")
-//     }
+    let review = {
+        title: getURLParam("id"), //id
+        utente: getUtenteLoggato().email, //autore ricetta
+        text: dati.get("review-text"),
+        difficulty: dati.get("difficolta"),
+        taste: dati.get("gusto"),
+        date: dati.get("preparation-date")
+    }
     
-   
-//     addReview(review);
+    console.log(review)
+    addReview(review);
 
-//     document.querySelector("#recipe-review").value = "";
 
-//     return true;
-// }
+
+    location.reload();
+    return false;
+}

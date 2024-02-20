@@ -31,6 +31,9 @@ a {
     }
 }
 
+textarea {
+    resize: none;
+}
 
 .color-first {
     background-color: #afda5c;
@@ -194,6 +197,36 @@ a {
 .card[data-saved] .bi-suit-heart {
     display: none;
 }
+
+
+
+.card .review-card-delete {
+    display: none;
+}
+
+.card[data-user] .review-card-delete {
+    display: block;
+}
+
+
+textarea.cookbook-card-text[disabled] + button>.bi-check-square {
+    display: none;
+}
+
+textarea.cookbook-card-text[disabled] + button>.bi-pencil-square {
+    display: block;
+}
+
+/* in realtà è il comportamento di default */
+textarea.cookbook-card-text + button>.bi-check-square {
+    display: block;
+}
+
+textarea.cookbook-card-text + button>.bi-pencil-square {
+    display: none;
+}
+
+
 
 
 /*

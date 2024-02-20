@@ -114,12 +114,18 @@
 
                                 </div>
                                 <div class="col-2 d-flex justify-content-end align-items-center">
-                                    <a class=" btn btn-outline-dark card-save" data-bs-toggle="modal"
-                                        data-bs-target="#recipe-note">
+                                    <a class=" btn btn-outline-dark card-save" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                            fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16" data-bs-toggle="modal"
+                                            data-bs-target="#recipe-note" >
                                             <path
                                                 d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
+                                        </svg>
+                                   
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" class="bi bi-suit-heart-fill d-none" viewBox="0 0 16 16" onclick="remToCookbook(getURLParam('id')); location.reload()" >
+                                            <path
+                                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
                                         </svg>
                                     </a>
 
@@ -231,7 +237,7 @@
 
     <section class="container-xxl my-3 d-flex justify-content-center">
         <div class="bg-light p-3 rounded-5 shadow fit-content">
-            <div class="container d-flex align-items-center">
+            <div class="container d-flex align-items-center ">
                 <div class="row justify-content-center">
                     <!-- Recensioni - Title -->
                     <div class="d-flex justify-content-between mb-3">
@@ -249,7 +255,7 @@
 
                     </div>
                     <!-- Recensioni -->
-                    <div class="d-none zero_recensioni text-center fs-3">
+                    <div class="zero_recensioni text-center fs-3">
 
                         There are no reviews for this recipe
                     </div>
@@ -267,7 +273,24 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title title_review">Special title treatment</h5>
+                                <div class="d-flex gap-1 align-items-start justify-content-between">
+                                    <div>
+                                        <h5 class="card-title title_review">Special title
+                                            treatment</h5>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn-outline-dark review-card-delete" data-bs-toggle="modal"
+                                            data-bs-target="#delete-review" data-recipe="" data-date="" data-text=""
+                                            onclick="event.preventDefault(); remReview(this.getAttribute('data-recipe'), this.getAttribute('data-date'), this.getAttribute('data-text'))">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                </div>
                                 <div class="d-flex gap-1 justify-content-between align-items-center">
                                     <div class="">
                                         <p class="card-text text_review">
@@ -276,7 +299,7 @@
                                             additional
                                             content.</p>
                                     </div>
-                                    <div class="">
+                                    <div class="mt-1">
                                         <div class="row">
                                             <label for="difficoltà" class="form-label">Difficulty</label>
                                         </div>
@@ -300,6 +323,11 @@
 
                 </div>
             </div>
+        </div>
+
+
+        <div class="reviews">
+
         </div>
 
         <template id="t_diff">
@@ -334,13 +362,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- <form onsubmit="return controllaERegistraRecensione(this);" name="review_form"> -->
-                    <div id="review_info">
+                    <form onsubmit="return controllaERegistraRecensione(this)">
+                        <!-- <div id="review_info"> -->
                         <div class="form-floating">
                             <textarea name="review-text" class="form-control focus-ring focus-ring-green"
-                                placeholder="Scrivi la tua nota" id="recipe-review" style="height: 100px" maxlength="100"
+                                placeholder="Scrivi la tua nota" id="review-text" style="height: 100px" maxlength="100"
                                 oninput="controllaCampo(this)" required></textarea>
-                            <label for="recipe-review">Write your review here...</label>
+                            <label for="review-text">Write your review here...</label>
                         </div>
                         <div class="row mt-3 mx-1 gap-2 justify-content-center">
                             <div class="col-5 border">
@@ -348,8 +376,8 @@
                                     Difficulty
                                 </div>
                                 <div class="col">
-                                    <input name="difficoltà" type="range" class="form-range" min="0" max="4" step="1"
-                                        id="difficoltà" oninput="controllaCampo(this)" required>
+                                    <input name="difficolta" type="range" class="form-range" min="1" max="5" step="1"
+                                        value="3" id="difficolta" oninput="controllaCampo(this)" required>
                                     <div class="d-flex justify-content-between fs-4">
                                         <div> 1 </div>
                                         <div> 2 </div>
@@ -364,8 +392,8 @@
                                     Taste
                                 </div>
                                 <div class="col">
-                                    <input name="gusto" type="range" class="form-range" min="0" max="4" step="1"
-                                        id="gusto" oninput="controllaCampo(this)" required>
+                                    <input name="gusto" type="range" class="form-range" min="1" max="5" step="1"
+                                        value="3" id="gusto" oninput="controllaCampo(this)" required>
                                     <div class="d-flex justify-content-between fs-4">
                                         <div> 1 </div>
                                         <div> 2 </div>
@@ -384,30 +412,29 @@
                         </div>
 
                         <div class=" d-flex justify-content-end mt-4">
-                            <button class="save-review btn btn-dark loggato d-none" onclick="return saveReview()"
-                                data-bs-dismiss="modal" aria-label="Close">Publish</button>
+                            <button type="submit" class="save-review btn btn-dark loggato d-none">Publish</button>
                             <button class="save-review btn btn-dark non-loggato" data-bs-dismiss="modal"
                                 aria-label="Close" disabled>Publish</button>
 
                         </div>
-                    </div>
-                    <!-- </form> -->
+
+                        <!-- </div> -->
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
+    
     <!-- Modal login-->
     <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-body-dark">
                     <h1 class="modal-title fs-2 fw-medium">It's nice to see you again!</h1>
-
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     <div class="container d-flex justify-content-center align-items-center">
 
                         <form onsubmit="return controllaELogin(this)">
@@ -466,14 +493,13 @@
                                     <div class=" mt-2 d-block text-danger text-center login-errato d-none">
                                         Invalid email or password
                                     </div>
-
                                     <!-- <div class="pass"><a href="#" class="link-dark fs-sm text-decoration-underline">Have
                                             you forgot your password?</a>
                                     </div> -->
                                 </div>
 
                             </div>
-                            <div class="row button mx-auto mt-1 fit-content">
+                            <div class="row button mx-auto mt-2 fit-content">
                                 <button type="submit" class="btn btn-dark">Login</button>
                             </div>
                         </form>
@@ -500,7 +526,7 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail address</label>
                             <input name="email" id="email" class="form-control focus-ring focus-ring-green" type="email"
-                                oninput="controllaCampo(this)" required>
+                                oninput="controllaValiditaEUnicita(this)" required>
                             <div class="invalid-feedback">
                                 Email not valid
                             </div>
@@ -655,13 +681,15 @@
 
 
         let id = getURLParam("id")
+        let utente_loggato = getUtenteLoggato()
+
 
         let dati = await getById(id);
         document.querySelector("#recipe_title").textContent = dati.strMeal;
         document.querySelector("#recipe_img").src = dati.strMealThumb;
         document.querySelector("#recipe_instructions").textContent = dati.strInstructions;
         document.querySelector("#recipe_info").textContent = dati.strCategory + " | " + dati.strArea
-        document.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal)
+        document.querySelector(".bi-suit-heart").setAttribute("data-recipe", dati.idMeal)
 
         let recipe_stats = getRecipeReviewStats(id)
 
@@ -678,16 +706,19 @@
             template_ingrediente.parentElement.appendChild(ingrediente);
         }
 
+        if (utente_loggato.cookbook.filter((el) => el.id == id).length >= 1) {
+            document.querySelector(".bi-suit-heart-fill").classList.remove("d-none")
+            document.querySelector(".bi-suit-heart").classList.add("d-none")
+        }
+
 
 
         //recensioni
 
         let reviews = getReviewsById(id);
 
-        if (!reviews) {
-            document.querySelector(".zero_recensioni").classList.remove("d-none");
-        } else {
-
+        if (reviews && reviews.length > 0) {
+            document.querySelector(".zero_recensioni").classList.add("d-none");
             let t_review = document.querySelector("#template_review");
 
             let t_diff = document.querySelector("#t_diff")
@@ -701,6 +732,17 @@
                 review_card.querySelector(".data_review").textContent = review.date;
                 review_card.querySelector(".title_review").textContent = dati.strMeal; //uso i dati di sopra
                 review_card.querySelector(".text_review").textContent = review.text;
+                review_card.querySelector(".review-card-delete").setAttribute("data-recipe", dati.idMeal);
+                review_card.querySelector(".review-card-delete").setAttribute("data-date", review.date);
+                review_card.querySelector(".review-card-delete").setAttribute("data-text", review.text);
+
+
+                if (utente_loggato.email == review.utente) {
+                    review_card.querySelector("*").toggleAttribute("data-user");
+                }
+
+
+
                 for (let i = 1; i <= 5; i++) {
                     let icon_d = t_diff.content.cloneNode(true);
                     if (i <= review.difficulty) {
@@ -728,6 +770,16 @@
             }
         }
 
+
+
+
+        let scroll_to_reviews = getURLParam("reviews");
+        if (scroll_to_reviews) {
+
+            document.querySelector(".reviews").scrollIntoView({
+                behavior: 'smooth' //smooth scroll
+            })
+        }
 
 
     </script>

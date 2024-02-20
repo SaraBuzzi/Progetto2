@@ -164,6 +164,10 @@ function saveRecipe(button) {
 
     addToCookbook(saved_recipe);
 
+    let cards = document.querySelectorAll(".card:has(svg[data-recipe='"+recipe_id+"'])")
+    cards.forEach((card) => {
+        card.toggleAttribute("data-saved")
+    })
     document.querySelector("#note-text").value = "";
 
 }
@@ -224,6 +228,15 @@ async function search(ricerca) {
     }
 }
 
+function modificaNota(area) {
+    let id = area.getAttribute("data-recipe")
+    let text = area.value
+
+    modCookbook(id, text);
+    area.disabled = true;
+
+}
+
 //Per index prefisso = "pag/", per gli altri prefisso = ""
 function creaCard(dati, prefisso) {
     let template_card = document.querySelector("#t-card");
@@ -231,12 +244,19 @@ function creaCard(dati, prefisso) {
     card.querySelector(".card-img").src = dati.strMealThumb;
     card.querySelector(".card-title").textContent = dati.strMeal;
     card.querySelector(".card-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
-    card.querySelector(".comment-link").href = prefisso + "ricetta.html?id=" + dati.idMeal;
-    card.querySelector(".card-save").setAttribute("data-recipe", dati.idMeal);
-    if (getUtenteLoggato().cookbook.filter((el) => el.id == dati.idMeal).length >= 1)
-        card.querySelector("*").toggleAttribute("data-saved");
+    card.querySelector(".comment-link").href = prefisso + "ricetta.html?id=" + dati.idMeal + "&reviews=true";
+    card.querySelector(".bi-suit-heart").setAttribute("data-recipe", dati.idMeal);
+    card.querySelector(".bi-suit-heart-fill").setAttribute("data-recipe", dati.idMeal);
+
+    if (getUtenteLoggato()) {
+       if (getUtenteLoggato().cookbook.filter((el) => el.id == dati.idMeal).length >= 1)
+        card.querySelector("*").toggleAttribute("data-saved"); 
+    }
+    
     return card;
 }
+
+
 
 
 

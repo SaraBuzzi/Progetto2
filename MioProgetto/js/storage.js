@@ -13,8 +13,13 @@ function registraUtente(utente) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+//restituisce false se non nel local storage non è ancora presente un account con l'email passata come parametro
 function utenteDoppio(utente) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
+
+    if (!utenti_attuali) {
+        return false
+    }
     
     for (let i=0; i < utenti_attuali.length; i++) {
         if (utenti_attuali[i].email == utente) {
@@ -55,6 +60,7 @@ function getUtenteLoggato() {
     return null;
 }
 
+//restituisce il nome e il cognome dell'utente con email passata come parametro
 function getNomeCognome(email) {
     let utenti_attuali = JSON.parse(localStorage.getItem("utenti"));
   
@@ -81,7 +87,7 @@ function addToCookbook(recipe) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
-
+//rimuove la ricetta dal ricettario dell'utente loggato
 function remToCookbook(recipe_id) {
     let utente = getUtenteLoggato();
 
@@ -98,9 +104,33 @@ function remToCookbook(recipe_id) {
             utenti[i] = utente;
         }
     }
+
     localStorage.setItem("utenti", JSON.stringify(utenti));
-    location.reload();
+    let cards = document.querySelectorAll(".card:has(svg[data-recipe='"+recipe_id+"'])")
+    cards.forEach((card) => {
+        card.toggleAttribute("data-saved")
+    })
+   
 }
+
+//
+function modCookbook(id, text) {
+    let utenti = JSON.parse(localStorage.getItem("utenti"));
+    let utente_loggato = getUtenteLoggato().email;
+
+    for ( let i= 0; i < utenti.length; i++) {
+        if (utenti[i].email == utente_loggato) {
+            for (let j= 0; j < utenti[i].cookbook.length; j++) {
+                if (utenti[i].cookbook[j].id == id) {
+                    utenti[i].cookbook[j].text = text;
+                }
+            }
+        }
+    }
+
+    localStorage.setItem("utenti", JSON.stringify(utenti))
+}
+
 
 //aggiunge la ricetta che ha recensioni
 function addReview(review) {
@@ -120,6 +150,7 @@ function addReview(review) {
     localStorage.setItem("recensioni", JSON.stringify(reviews))
 }
 
+//rimuove la recensione identificata dai parametri passati
 function remReview(recipe_id, review_date, review_text) {
     let user = getUtenteLoggato().email;
     let reviews = JSON.parse(localStorage.getItem("recensioni"));
@@ -132,13 +163,18 @@ function remReview(recipe_id, review_date, review_text) {
     }
     localStorage.setItem("recensioni", JSON.stringify(reviews));
     location.reload();
+    
 }
 
-
+//restituisce le recensioni dell'utente loggato, se non ce ne sono, restituisce un array vuoto
 function getUserReviews() {
     let email = sessionStorage.getItem("utente_loggato")
     let reviews = JSON.parse(localStorage.getItem("recensioni"));
     let user_reviews = []
+    if (!reviews) { 
+        return user_reviews
+    }
+    
     for (let recipe_id of Object.keys(reviews)) { // !!! Preso da https://stackoverflow.com/questions/36839089/how-to-retrieve-all-fields-from-a-json-file
         for(let recipe of reviews[recipe_id]) {
             if (recipe.utente == email) {
@@ -149,12 +185,14 @@ function getUserReviews() {
     return user_reviews;
 }
 
+//restituisce le recensioni della ricetta identificata dall'id passato come parametro
 function getReviewsById(id) {
     let reviews = JSON.parse(localStorage.getItem("recensioni"));
     return reviews[id];
 
 }
 
+//restituisce la media dei valori delle recensioni di gusto e difficoltà della ricetta identificata dall'id passato come parametro
 function getRecipeReviewStats(id) {
     let reviews = JSON.parse(localStorage.getItem("recensioni"));
     if (reviews) {
@@ -187,6 +225,7 @@ function modificaDatiUtente(nuovo_utente) {
     localStorage.setItem("utenti", JSON.stringify(utenti_attuali));
 }
 
+//effettua un logout 
 function logout() {
     sessionStorage.removeItem("utente_loggato");
     location.reload();
